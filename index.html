@@ -34,61 +34,58 @@
       </ul>
     </nav>
   </header>
+
   <main>
+    <section id="mapa">
+      <h2>Mapa</h2>
+      <iframe src="mapa.html"></iframe>
+    </section>
+    <hr>
+    <section id="pontos">
+      <h2>Pontos</h2>
+      <ul id="lista-pontos">
+        <li>
+          <p>Casa</p>
+          <p>Rua das Palmeiras, 435, Belo Horizonte</p>          
+        </li>
+      </ul>
+    </section>
+    <hr>
+    <section id="aqui">
+      <h2>Geolocalização Atual</h2>
+      <dl>
+        <form>
+          <dt>Latitude</dt>
+          <dd>
+            <table>
+              <th>Aproximada</th>
+              <th>Precisa</th>
+              <tr>
+                <td><input id="lat-aproximada" size="10" disabled></td>
+                <td><input id="lat-precisa" size="10" disabled></td>
+              </tr>
+            </table>
+          </dd>
+          <dt>Longitute</dt>
+          <dd>
+            <table>
+              <th>Aproximada</th>
+              <th>Precisa</th>
+              <tr>
+                <td><input id="lon-aproximada" size="10" disabled></td>
+                <td><input id="lon-precisa" size="10" disabled></td>
+              </tr>
+            </table>
+          </dd>
+          <dt>Endereço</dt>
+          <dd><input id="endereco" type="text" disabled></dd>
+          <dt>Descrição</dt>
+          <dd><input id="descricao" type="text" required></dd>
+          <br>
+          <button id="btn-adicionar">Adicionar</button>
+        </form>
+      </dl>
 
-    <section class="main-feature">
-      <section id="mapa">
-        <h2>Mapa</h2>
-        <iframe src="mapa.html"></iframe>
-      </section>
-
-      <section id="pontos">
-        <h2>Pontos</h2>
-        <ul>
-          <li>
-            <p>Casa</p>
-            <p>Latitude: 0.55455</p>
-            <p>Longitude: 1.54878</p>
-          </li>
-        </ul>
-      </section>
-
-      <section id="aqui">
-        <h2>Geolocalização Atual</h2>
-        <dl>
-          <form>
-            <dt>Latitude</dt>
-            <dd>
-              <table>
-                <th>Aproximada</th>
-                <th>Precisa</th>
-                <tr>
-                  <td><input id="lat-aproximada" size="10" disabled></td>
-                  <td><input id="lat-precisa" size="10" disabled></td>
-                </tr>
-              </table>
-            </dd>
-            <dt>Longitute</dt>
-            <dd>
-              <table>
-                <th>Aproximada</th>
-                <th>Precisa</th>
-                <tr>
-                  <td><input id="lon-aproximada" size="10" disabled></td>
-                  <td><input id="lon-precisa" size="10" disabled></td>
-                </tr>
-              </table>
-            </dd>
-            <dt>Endereço</dt>
-            <dd><input id="endereco" type="text" disabled></dd>
-            <dt>Descrição</dt>
-            <dd><input id="descricao" type="text" required></dd>
-            <br>
-            <button id="btn-adicionar">Adicionar</button>
-          </form>
-        </dl>
-
-      </section>
     </section>
 
   </main>
@@ -108,10 +105,19 @@
         timeout: 27000
       });
 
-      $("#btn-adicionar").click(function(event) {
+      $("#btn-adicionar").click(function (event) {
         event.preventDefault();
         navigator.geolocation.clearWatch(wpid);
+        let descricao =  $("#descricao").val();
+        let endereco = $("#endereco").val();
+        let lista = $("#lista-pontos");
+        let pontoDaLista = $("<li>");
+        pontoDaLista.append($("<p>").append(descricao));
+        pontoDaLista.append($("<p>").append(endereco));
+        lista.prepend($("<hr>"));
+        lista.prepend(pontoDaLista);
       });
+
     } else {
       $("#descricao").attr("disabled", true);
       $("#btn-adicionar").attr("disabled", true);
