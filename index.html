@@ -88,11 +88,11 @@
             </table>
           </dd>
           <dt>Endereço</dt>
-          <dd><input id="endereco" type="text" disabled></dd>
-          <dt>Descrição</dt>
+          <dd><input id="endereco" type="text" disabled required></dd>
+          <dt><label for="descricao"> Descrição</label></dt>
           <dd><input id="descricao" type="text" required></dd>
           <br>
-          <button id="btn-adicionar">Adicionar</button>
+          <button id="btn-marcar">Marcar Ponto</button>
         </form>
       </dl>
 
@@ -125,7 +125,7 @@
         timeout: 27000
       });
 
-      $("#btn-adicionar").click(function (event) {
+      $("#btn-marcar").click(function (event) {
         event.preventDefault();
         navigator.geolocation.clearWatch(wpid);
         let descricao = $("#descricao").val();
@@ -140,7 +140,7 @@
 
     } else {
       $("#descricao").attr("disabled", true);
-      $("#btn-adicionar").attr("disabled", true);
+      $("#btn-marcar").attr("disabled", true);
       console.log("API GEO desabilitada");
       alert("Não foi possível obter a localização");
     }
