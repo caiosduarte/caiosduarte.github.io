@@ -119,6 +119,7 @@
       navigator.geolocation.getCurrentPosition(
         aproximadaEncontrada,
         aproximadaErro);
+      
       var wpid = navigator.geolocation.watchPosition(precisaEncontrada, precisaErro, {
         enableHighAccuracy: true,
         maximumAge: 30000,
@@ -145,19 +146,20 @@
       alert("Não foi possível obter a localização");
     }
 
-
+    var latitude;
+    var longitude;
+ 
 
     function aproximadaEncontrada(position) {
-      var pos = {
-              lat: position.coords.latitude,
-              lng: position.coords.longitude
-            };
+      latitude = position.coords.latitude;
+      longitude = position.coords.longitude;      
 
-
-      map.setCenter(pos);
-          
       $("#lat-aproximada").val(position.coords.latitude);
       $("#lon-aproximada").val(position.coords.longitude);
+
+      if(latitude && longitude) {
+        centralizaMapa(latitude, longitude);
+      }                
     }
 
     function aproximadaErro(PositionError) {
@@ -165,21 +167,31 @@
       console.log("Erro na API GEO: " + PositionError.message);
     }
 
-    var latitude;
-    var longitude;
     function precisaEncontrada(position) {
       latitude = position.coords.latitude;
       longitude = position.coords.longitude;      
 
       $("#lat-precisa").val(position.coords.latitude);
       $("#lon-precisa").val(position.coords.longitude);
-      //initMap(position.coords.latitude, position.coords.longitude);
+
+      if(latitude && longitude) {
+        centralizaMapa(latitude, longitude);
+      }
+      
     }
 
     function precisaErro(PositionError) {
       console.log("Erro na API GEO: " + PositionError.message);
       //$("#lat-precisa").val(position.coords.latitude);
       //$("#lon-precisa").val(position.coords.longitude);
+    }
+
+    function centralizaMapa(lati, long) {
+      var pos = {
+              lat: lati,
+              lng: long
+      };
+      map.setCenter(pos);    
     }
 
   </script>
