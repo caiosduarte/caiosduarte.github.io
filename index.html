@@ -61,7 +61,7 @@
         <section id="aqui">
             <h2>Geolocalização Atual</h2>
             <dl>
-                <form>
+                <form id="form-ponto">
                     <dt>Latitude</dt>
                     <dd>
                         <table>
@@ -84,8 +84,6 @@
                             </tr>
                         </table>
                     </dd>
-                    <!--dt>Endereço</dt>
-          <dd><input id="endereco" type="text" disabled required></dd-->
                     <dt><label for="descricao"> Descrição</label></dt>
                     <dd><input id="descricao" type="text" required></dd>
                     <br>
@@ -141,7 +139,8 @@
             $("#btn-marcar").click(function(event) {
                 event.preventDefault();
                 navigator.geolocation.clearWatch(wpid);
-                let descricao = $("#descricao").val();
+                let descricaoCampo = $("#descricao");
+                let descricao = descricaoCampo.val();
 
                 let posicao = {
                     lat: latitude,
@@ -158,10 +157,16 @@
 
                 marker.setMap(map);
 
+                centralizaMapa(latitude, longitude);
+
                 let lista = $("#lista-pontos");
                 let pontoDaLista = $("<li>");
-                pontoDaLista.append($("<p>").append(descricao));
+                let scriptCentraliza = 'centralizaMapa(' + latitude + ',' + longitude + ')';
+                pontoDaLista.append($("<a>").append(descricao).attr("src", "#").attr("onclick", scriptCentraliza));
                 lista.prepend(pontoDaLista);
+
+                //$("#form-ponto")[0].reset();
+                descricaoCampo.val("");
             });
 
         } else {
