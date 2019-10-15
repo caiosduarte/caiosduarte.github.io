@@ -19,10 +19,7 @@
     <meta name="theme-color" content="#fafafa">
 
     <style>
-        /* Always set the map height explicitly to define the size of the div
-       * element that contains the map. */
-        
-        #map {
+        #mapa {
             width: auto;
             height: 200px;
         }
@@ -60,36 +57,48 @@
         <hr>
         <section id="aqui">
             <h2>Geolocalização Atual</h2>
-            <dl>
-                <form id="form-ponto">
+            <form id="form-ponto">
+                <dl>
                     <dt>Latitude</dt>
                     <dd>
                         <table>
-                            <th>Aproximada</th>
-                            <th>Precisa</th>
-                            <tr>
-                                <td><input id="lat-aproximada" size="10" disabled></td>
-                                <td><input id="lat-precisa" size="10" disabled></td>
-                            </tr>
+                            <thead>
+                                <tr>
+                                    <th>Aproximada</th>
+                                    <th>Precisa</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><input id="lat-aproximada" size="10" disabled></td>
+                                    <td><input id="lat-precisa" size="10" disabled></td>
+                                </tr>
+                            </tbody>
                         </table>
                     </dd>
                     <dt>Longitute</dt>
                     <dd>
                         <table>
-                            <th>Aproximada</th>
-                            <th>Precisa</th>
-                            <tr>
-                                <td><input id="lon-aproximada" size="10" disabled></td>
-                                <td><input id="lon-precisa" size="10" disabled></td>
-                            </tr>
+                            <thead>
+                                <tr>
+                                    <th>Aproximada</th>
+                                    <th>Precisa</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><input id="lon-aproximada" size="10" disabled></td>
+                                    <td><input id="lon-precisa" size="10" disabled></td>
+                                </tr>
+                            </tbody>
                         </table>
                     </dd>
                     <dt><label for="descricao"> Descrição</label></dt>
                     <dd><input id="descricao" type="text" required></dd>
-                    <br>
-                    <button id="btn-marcar">Marcar Ponto</button>
-                </form>
-            </dl>
+                </dl>
+                <br>
+                <button id="btn-marcar">Marcar Ponto</button>
+            </form>
 
         </section>
 
@@ -98,124 +107,9 @@
     <footer></footer>
 
     <script src="js/vendor/jquery-3.4.1.min.js"></script>
+    <script src="js/main.js"></script>
 
     <script>
-        if ("geolocation" in navigator) {
-            var latitude;
-            var longitude;
-
-            var map;
-            var markers = new Array();
-
-            function initMap() {
-
-                map = new google.maps.Map(document.getElementById('map'), {
-                    center: {
-                        lat: -34.397,
-                        lng: 150.644
-                    },
-                    zoom: 17
-                });
-                if (markers) {
-                    markers.forEach(pos => {
-                        new google.maps.Marker({
-                            position: pos,
-                            map: map
-                        });
-                    });
-                }
-            }
-
-            navigator.geolocation.getCurrentPosition(
-                aproximadaEncontrada,
-                aproximadaErro);
-
-            var wpid = navigator.geolocation.watchPosition(precisaEncontrada, precisaErro, {
-                enableHighAccuracy: true,
-                maximumAge: 30000,
-                timeout: 27000
-            });
-
-            $("#btn-marcar").click(function(event) {
-                event.preventDefault();
-                navigator.geolocation.clearWatch(wpid);
-                let descricaoCampo = $("#descricao");
-                let descricao = descricaoCampo.val();
-
-                let posicao = {
-                    lat: latitude,
-                    lng: longitude,
-                    title: descricao
-                };
-
-                var marker = new google.maps.Marker({
-                    position: posicao,
-                    title: descricao
-                });
-
-                markers.push(marker);
-
-                marker.setMap(map);
-
-                centralizaMapa(latitude, longitude);
-
-                let lista = $("#lista-pontos");
-                let pontoDaLista = $("<li>");
-                let scriptCentraliza = 'centralizaMapa(' + latitude + ',' + longitude + ')';
-                pontoDaLista.append($("<a>").append(descricao).attr("src", "#").attr("onclick", scriptCentraliza));
-                lista.prepend(pontoDaLista);
-
-                //$("#form-ponto")[0].reset();
-                descricaoCampo.val("");
-            });
-
-        } else {
-            $("#descricao").attr("disabled", true);
-            $("#btn-marcar").attr("disabled", true);
-            console.log("API GEO desabilitada");
-            alert("Não foi possível obter a localização");
-        }
-
-        function aproximadaEncontrada(position) {
-            latitude = position.coords.latitude;
-            longitude = position.coords.longitude;
-
-            $("#lat-aproximada").val(position.coords.latitude);
-            $("#lon-aproximada").val(position.coords.longitude);
-
-            if (latitude && longitude) {
-                centralizaMapa(latitude, longitude);
-            }
-        }
-
-        function aproximadaErro(PositionError) {
-            console.log("Erro na API GEO: " + PositionError.message);
-        }
-
-        function precisaEncontrada(position) {
-            if (!latitude) {
-                console.log("pegou as coord precisas");
-                centralizaMapa(position.coords.latitude,
-                    position.coords.longitude);
-            }
-            latitude = position.coords.latitude;
-            longitude = position.coords.longitude;
-
-            $("#lat-precisa").val(latitude);
-            $("#lon-precisa").val(longitude);
-        }
-
-        function precisaErro(PositionError) {
-            console.log("Erro na API GEO: " + PositionError.message);
-        }
-
-        function centralizaMapa(lati, long) {
-            var pos = {
-                lat: lati,
-                lng: long
-            };
-            map.setCenter(pos);
-        }
     </script>
 
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBALQsLXvF_5kFFKJubczKb569l7ozkhoY&callback=initMap" async defer></script>

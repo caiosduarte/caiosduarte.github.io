@@ -1,5 +1,18 @@
+HTML5 API geolocalização:
+
 https://developer.mozilla.org/pt-BR/docs/Using_geolocation
 
-https://developers.google.com/maps/documentation/javascript/geolocation
-https://developers-dot-devsite-v2-prod.appspot.com/maps/documentation/javascript/examples/map-simple
+
+Google Maps Javascript API
+
+introdução:
 https://developers.google.com/maps/documentation/javascript/tutorial
+https://developers-dot-devsite-v2-prod.appspot.com/maps/documentation/javascript/examples/map-simple
+
+geolocalização:
+https://developers.google.com/maps/documentation/javascript/geolocation
+
+
+marcadores:
+
+https://developers.google.com/maps/documentation/javascript/adding-a-google-map
