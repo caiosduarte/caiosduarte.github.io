@@ -1,5 +1,7 @@
 Projeto Front-end: Marcador de Pontos Georeferenciados
+
 O objetivo do projeto é fazer um marcador de pontos georeferenciados. 
+
 Etapa 1 (Exercício prático 01 - HTML5 APIs):
 Estruturei o HTML5 de forma semântica e utilizei o CSS reset.css para limpar os estilos. 
 Utilizei a API de geolocalização do HTML5 e integrei com um mapa do Google Maps através da MAPs Javascript API, apenas para exibição dos dados em um mapa. 
