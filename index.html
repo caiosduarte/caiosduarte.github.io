@@ -2,202 +2,198 @@
 <html class="no-js" lang="pt-BR">
 
 <head>
-  <meta charset="utf-8">
-  <title>Marcador Pontos Georeferenciados - Projeto Front-end</title>
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <title>Marcador Pontos Georeferenciados - Projeto Front-end</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <link rel="manifest" href="site.webmanifest">
-  <link rel="apple-touch-icon" href="icon.png">
-  <!-- Place favicon.ico in the root directory -->
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="apple-touch-icon" href="icon.png">
+    <!-- Place favicon.ico in the root directory -->
 
-  <!--link rel="stylesheet" href="css/normalize.css"-->
-  <!--link rel="stylesheet" href="css/main.css"-->
-  <link rel="stylesheet" href="css/reset.css">
+    <!--link rel="stylesheet" href="css/normalize.css"-->
+    <!--link rel="stylesheet" href="css/main.css"-->
+    <link rel="stylesheet" href="css/reset.css">
 
 
-  <meta name="theme-color" content="#fafafa">
+    <meta name="theme-color" content="#fafafa">
 
-  <style>
-    /* Always set the map height explicitly to define the size of the div
+    <style>
+        /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
-    #map {
-      width: auto;
-      height: 200px;
-    }
-  </style>
+        
+        #map {
+            width: auto;
+            height: 200px;
+        }
+    </style>
 </head>
 
 <body>
-  <!--[if IE]>
+    <!--[if IE]>
     <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
   <![endif]-->
 
-  <header>
-    <h1 class="app-title">Marcador de Pontos Georeferenciados</h1>
-    <nav>
-      <ul>
-        <li><a href="#mapa">Mapa</a></li>
-        <li><a href="#pontos">Pontos</a></li>
-        <li><a href="#aqui">Geolocalização Atual</a></li>
-      </ul>
-    </nav>
-  </header>
+    <header>
+        <h1 class="app-title">Marcador de Pontos Georeferenciados</h1>
+        <nav>
+            <ul>
+                <li><a href="#mapa">Mapa</a></li>
+                <li><a href="#pontos">Pontos</a></li>
+                <li><a href="#aqui">Geolocalização Atual</a></li>
+            </ul>
+        </nav>
+    </header>
 
-  <main>
-    <section id="mapa">
-      <h2>Mapa</h2>
-      <!--iframe src="mapa.html"></iframe-->
-      <div id="map"></div>
-    </section>
-    <hr>
-    <section id="pontos">
-      <h2>Pontos</h2>
-      <ul id="lista-pontos">
-        <li>
-          <p>Casa</p>
-          <p>Rua das Palmeiras, 435, Belo Horizonte</p>
-        </li>
-      </ul>
-    </section>
-    <hr>
-    <section id="aqui">
-      <h2>Geolocalização Atual</h2>
-      <dl>
-        <form>
-          <dt>Latitude</dt>
-          <dd>
-            <table>
-              <th>Aproximada</th>
-              <th>Precisa</th>
-              <tr>
-                <td><input id="lat-aproximada" size="10" disabled></td>
-                <td><input id="lat-precisa" size="10" disabled></td>
-              </tr>
-            </table>
-          </dd>
-          <dt>Longitute</dt>
-          <dd>
-            <table>
-              <th>Aproximada</th>
-              <th>Precisa</th>
-              <tr>
-                <td><input id="lon-aproximada" size="10" disabled></td>
-                <td><input id="lon-precisa" size="10" disabled></td>
-              </tr>
-            </table>
-          </dd>
-          <!--dt>Endereço</dt>
+    <main>
+        <section id="mapa">
+            <h2>Mapa</h2>
+            <div id="map"></div>
+        </section>
+        <hr>
+        <section id="pontos">
+            <h2>Pontos</h2>
+            <ol id="lista-pontos">
+                <li></li>
+            </ol>
+        </section>
+        <hr>
+        <section id="aqui">
+            <h2>Geolocalização Atual</h2>
+            <dl>
+                <form>
+                    <dt>Latitude</dt>
+                    <dd>
+                        <table>
+                            <th>Aproximada</th>
+                            <th>Precisa</th>
+                            <tr>
+                                <td><input id="lat-aproximada" size="10" disabled></td>
+                                <td><input id="lat-precisa" size="10" disabled></td>
+                            </tr>
+                        </table>
+                    </dd>
+                    <dt>Longitute</dt>
+                    <dd>
+                        <table>
+                            <th>Aproximada</th>
+                            <th>Precisa</th>
+                            <tr>
+                                <td><input id="lon-aproximada" size="10" disabled></td>
+                                <td><input id="lon-precisa" size="10" disabled></td>
+                            </tr>
+                        </table>
+                    </dd>
+                    <!--dt>Endereço</dt>
           <dd><input id="endereco" type="text" disabled required></dd-->
-          <dt><label for="descricao"> Descrição</label></dt>
-          <dd><input id="descricao" type="text" required></dd>
-          <br>
-          <button id="btn-marcar">Marcar Ponto</button>
-        </form>
-      </dl>
+                    <dt><label for="descricao"> Descrição</label></dt>
+                    <dd><input id="descricao" type="text" required></dd>
+                    <br>
+                    <button id="btn-marcar">Marcar Ponto</button>
+                </form>
+            </dl>
 
-    </section>
+        </section>
 
-  </main>
+    </main>
 
-  <footer></footer>
+    <footer></footer>
 
-  <script src="js/vendor/jquery-3.4.1.min.js"></script>
+    <script src="js/vendor/jquery-3.4.1.min.js"></script>
 
-  <script>
-    if ("geolocation" in navigator) {
+    <script>
+        if ("geolocation" in navigator) {
 
-      var map;
-      function initMap() {
-        
-        map = new google.maps.Map(document.getElementById('map'), {
-            center: {lat: -34.397, lng: 150.644},
-            zoom: 15
-          });
-      }
+            var map;
 
-      navigator.geolocation.getCurrentPosition(
-        aproximadaEncontrada,
-        aproximadaErro);
-      
-      var wpid = navigator.geolocation.watchPosition(precisaEncontrada, precisaErro, {
-        enableHighAccuracy: true,
-        maximumAge: 30000,
-        timeout: 27000
-      });
+            function initMap() {
 
-      $("#btn-marcar").click(function (event) {
-        event.preventDefault();
-        navigator.geolocation.clearWatch(wpid);
-        let descricao = $("#descricao").val();
-        let endereco = $("#endereco").val();
-        let lista = $("#lista-pontos");
-        let pontoDaLista = $("<li>");
-        pontoDaLista.append($("<p>").append(descricao));
-        pontoDaLista.append($("<p>").append(endereco));
-        lista.prepend($("<hr>"));
-        lista.prepend(pontoDaLista);
-      });
+                map = new google.maps.Map(document.getElementById('map'), {
+                    center: {
+                        lat: -34.397,
+                        lng: 150.644
+                    },
+                    zoom: 15
+                });
+            }
 
-    } else {
-      $("#descricao").attr("disabled", true);
-      $("#btn-marcar").attr("disabled", true);
-      console.log("API GEO desabilitada");
-      alert("Não foi possível obter a localização");
-    }
+            navigator.geolocation.getCurrentPosition(
+                aproximadaEncontrada,
+                aproximadaErro);
 
-    var latitude;
-    var longitude;
- 
+            var wpid = navigator.geolocation.watchPosition(precisaEncontrada, precisaErro, {
+                enableHighAccuracy: true,
+                maximumAge: 30000,
+                timeout: 27000
+            });
 
-    function aproximadaEncontrada(position) {
-      latitude = position.coords.latitude;
-      longitude = position.coords.longitude;      
+            $("#btn-marcar").click(function(event) {
+                event.preventDefault();
+                navigator.geolocation.clearWatch(wpid);
+                let descricao = $("#descricao").val();
+                let lista = $("#lista-pontos");
+                let pontoDaLista = $("<li>");
+                pontoDaLista.append($("<p>").append(descricao));
+                lista.prepend(pontoDaLista);
+            });
 
-      $("#lat-aproximada").val(position.coords.latitude);
-      $("#lon-aproximada").val(position.coords.longitude);
+        } else {
+            $("#descricao").attr("disabled", true);
+            $("#btn-marcar").attr("disabled", true);
+            console.log("API GEO desabilitada");
+            alert("Não foi possível obter a localização");
+        }
 
-      if(latitude && longitude) {
-        centralizaMapa(latitude, longitude);
-      }                
-    }
+        var latitude;
+        var longitude;
 
-    function aproximadaErro(PositionError) {
-      // PositionError
-      console.log("Erro na API GEO: " + PositionError.message);
-    }
 
-    function precisaEncontrada(position) {
-      latitude = position.coords.latitude;
-      longitude = position.coords.longitude;      
+        function aproximadaEncontrada(position) {
+            latitude = position.coords.latitude;
+            longitude = position.coords.longitude;
 
-      $("#lat-precisa").val(position.coords.latitude);
-      $("#lon-precisa").val(position.coords.longitude);
+            $("#lat-aproximada").val(position.coords.latitude);
+            $("#lon-aproximada").val(position.coords.longitude);
 
-      if(latitude && longitude) {
-        centralizaMapa(latitude, longitude);
-      }
-      
-    }
+            if (latitude && longitude) {
+                centralizaMapa(latitude, longitude);
+            }
+        }
 
-    function precisaErro(PositionError) {
-      console.log("Erro na API GEO: " + PositionError.message);
-      //$("#lat-precisa").val(position.coords.latitude);
-      //$("#lon-precisa").val(position.coords.longitude);
-    }
+        function aproximadaErro(PositionError) {
+            // PositionError
+            console.log("Erro na API GEO: " + PositionError.message);
+        }
 
-    function centralizaMapa(lati, long) {
-      var pos = {
-              lat: lati,
-              lng: long
-      };
-      map.setCenter(pos);    
-    }
+        function precisaEncontrada(position) {
 
-  </script>
+            if (!latitude) {
+                console.log("pegou as coord precisas");
+                centralizaMapa(position.coords.latitude,
+                    position.coords.longitude);
+            }
+            latitude = position.coords.latitude;
+            longitude = position.coords.longitude;
 
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBALQsLXvF_5kFFKJubczKb569l7ozkhoY&callback=initMap"
-    async defer></script>
+            $("#lat-precisa").val(latitude);
+            $("#lon-precisa").val(longitude);
+
+        }
+
+        function precisaErro(PositionError) {
+            console.log("Erro na API GEO: " + PositionError.message);
+        }
+
+        function centralizaMapa(lati, long) {
+            var pos = {
+                lat: lati,
+                lng: long
+            };
+            map.setCenter(pos);
+        }
+    </script>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBALQsLXvF_5kFFKJubczKb569l7ozkhoY&callback=initMap" async defer></script>
 
 
 </body>
