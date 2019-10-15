@@ -103,8 +103,11 @@
 
     <script>
         if ("geolocation" in navigator) {
+            var latitude;
+            var longitude;
 
             var map;
+            var markers = new Array();
 
             function initMap() {
 
@@ -113,8 +116,16 @@
                         lat: -34.397,
                         lng: 150.644
                     },
-                    zoom: 15
+                    zoom: 17
                 });
+                if (markers) {
+                    markers.forEach(pos => {
+                        new google.maps.Marker({
+                            position: pos,
+                            map: map
+                        });
+                    });
+                }
             }
 
             navigator.geolocation.getCurrentPosition(
@@ -131,6 +142,22 @@
                 event.preventDefault();
                 navigator.geolocation.clearWatch(wpid);
                 let descricao = $("#descricao").val();
+
+                let posicao = {
+                    lat: latitude,
+                    lng: longitude,
+                    title: descricao
+                };
+
+                var marker = new google.maps.Marker({
+                    position: posicao,
+                    title: descricao
+                });
+
+                markers.push(marker);
+
+                marker.setMap(map);
+
                 let lista = $("#lista-pontos");
                 let pontoDaLista = $("<li>");
                 pontoDaLista.append($("<p>").append(descricao));
@@ -143,10 +170,6 @@
             console.log("API GEO desabilitada");
             alert("Não foi possível obter a localização");
         }
-
-        var latitude;
-        var longitude;
-
 
         function aproximadaEncontrada(position) {
             latitude = position.coords.latitude;
@@ -161,12 +184,10 @@
         }
 
         function aproximadaErro(PositionError) {
-            // PositionError
             console.log("Erro na API GEO: " + PositionError.message);
         }
 
         function precisaEncontrada(position) {
-
             if (!latitude) {
                 console.log("pegou as coord precisas");
                 centralizaMapa(position.coords.latitude,
@@ -177,7 +198,6 @@
 
             $("#lat-precisa").val(latitude);
             $("#lon-precisa").val(longitude);
-
         }
 
         function precisaErro(PositionError) {
