@@ -1,33 +1,33 @@
 body {
   font-family: Arial, Helvetica, sans-serif;
   color: #222;
- }
- body > header {
-  background-color: #627A14;
+}
+body > header {
+  background-color: #627a14;
   padding: 1vh 1vw;
   height: 10vh;
   box-sizing: border-box;
   color: #fff;
- }
- body > main {
+}
+body > main {
   height: 85vh;
- }
- body > footer {
+}
+body > footer {
   height: 5vh;
-  background-color: #B3CB65;
- }
- h1.app-title {
+  background-color: #b3cb65;
+}
+h1.app-title {
   font-size: 20px;
- }
- section.main-feature {
+}
+section.main-feature {
   float: left;
   background-color: #fbfbfb;
   width: 70vw;
   height: 85vh;
- }
- aside.secundary-feature {
+}
+aside.secundary-feature {
   float: right;
-  background-color: #6F4D8F;
+  background-color: #6f4d8f;
   width: 20vw;
   height: 85vh;
   color: #fff;
