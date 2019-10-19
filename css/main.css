@@ -9,16 +9,19 @@
   text-align: center;
 }
 .titulo__principal {
-  font-size: 1.5em;
+  font-size: 1.3em;
   font-weight: bold;
   font-family: "Segoe UI", "Roboto", arial, sans-serif;
 }
 .titulo__secundario {
-  font-size: 0.9270509831em;
+  font-size: 0.8034441854em;
   font-weight: bold;
   font-family: "Segoe UI", "Roboto", arial, sans-serif;
 }
 
+.navegacao {
+  display: none;
+}
 .navegacao__item {
   display: inline-block;
   text-transform: uppercase;

@@ -2,7 +2,7 @@
 
 $desktop: 1024px;
 $fonte-maior-px: 14px;
-$fonte-maior-em: 1.5em;
+$fonte-maior-em: 1.3em;
 $fonte-sem-serifa: 'Segoe UI',
 'Roboto',
 arial,
@@ -34,6 +34,7 @@ $razao-aurea: 1.61803398875;
 }
 
 .navegacao {
+    display: none;
     &__item {
         display: inline-block;
         text-transform: uppercase;
