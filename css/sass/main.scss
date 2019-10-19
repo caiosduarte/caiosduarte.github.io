@@ -1,5 +1,6 @@
 /* estrutura principal */
 
+$desktop: 1024px;
 $fonte-maior-tamanho: 22px;
 $razao-aurea: 1.61803398875;
 %titulo-compartilhado {
@@ -38,3 +39,8 @@ $razao-aurea: 1.61803398875;
 /* estilização dos elementos do formululário */
 
 @import 'formulario.scss';
+@media (min-width: $desktop) {
+    .navegacao {
+        display: none;
+    }
+}

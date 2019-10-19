@@ -20,13 +20,18 @@
   text-transform: uppercase;
 }
 
-/* estilizaÁ„o do mapa do Google Maps API */
+/* estiliza√ß√£o do mapa do Google Maps API */
 #mapa {
   width: auto;
   height: 200px;
 }
 
-/* estilizaÁ„o dos pontos marcados */
-/* estilizaÁ„o dos elementos do formulul·rio */
+/* estiliza√ß√£o dos pontos marcados */
+/* estiliza√ß√£o dos elementos do formulul√°rio */
+@media (min-width: 1024px) {
+  .navegacao {
+    display: none;
+  }
+}
 
 /*# sourceMappingURL=main.css.map */
