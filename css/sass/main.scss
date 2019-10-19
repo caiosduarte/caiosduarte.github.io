@@ -34,11 +34,11 @@ $razao-aurea: 1.61803398875;
 
 /* estilização dos pontos marcados */
 
-@import 'pontos.scss';
+@import '_pontos.scss';
 
 /* estilização dos elementos do formululário */
 
-@import 'formulario.scss';
+@import '_formulario.scss';
 @media (min-width: $desktop) {
     .navegacao {
         display: none;
