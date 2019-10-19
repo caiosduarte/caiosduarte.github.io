@@ -2,6 +2,9 @@ HTML5 API geolocalização:
 
 https://developer.mozilla.org/pt-BR/docs/Using_geolocation
 
+exemplos:
+http://www.linhadecodigo.com.br/artigo/3653/usando-geolocalizacao-com-html5.aspx
+https://blog.mxcursos.com/aprenda-geolocalizacao-com-html5/
 
 Google Maps Javascript API
 
