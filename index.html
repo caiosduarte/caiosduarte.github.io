@@ -9,21 +9,12 @@
 
     <link rel="manifest" href="site.webmanifest">
     <link rel="apple-touch-icon" href="icon.png">
-    <!-- Place favicon.ico in the root directory -->
 
-    <!--link rel="stylesheet" href="css/normalize.css"-->
-    <!--link rel="stylesheet" href="css/main.css"-->
     <link rel="stylesheet" href="css/reset.css">
-
+    <link rel="stylesheet" href="css/main.css">
 
     <meta name="theme-color" content="#fafafa">
 
-    <style>
-        #mapa {
-            width: auto;
-            height: 200px;
-        }
-    </style>
 </head>
 
 <body>
@@ -32,12 +23,12 @@
   <![endif]-->
 
     <header>
-        <h1 class="app-title">Marcador de Pontos Georeferenciados</h1>
-        <nav>
+        <h1 class="titulo__principal">Marcador de Pontos Georeferenciados</h1>
+        <nav class="navegacao">
             <ul>
-                <li><a href="#mapa">Mapa</a></li>
-                <li><a href="#pontos">Pontos</a></li>
-                <li><a href="#aqui">Geolocalização Atual</a></li>
+                <li class=".navegacao__item"><a href="#mapa">Mapa</a></li>
+                <li class=".navegacao__item"><a href="#pontos">Pontos</a></li>
+                <li class=".navegacao__item"><a href="#aqui">Geolocalização Atual</a></li>
             </ul>
         </nav>
     </header>
@@ -47,17 +38,17 @@
             <h2>Mapa</h2>
             <div id="map"></div>
         </section>
-        <hr>
+        <hr class="separador">
         <section id="pontos">
             <h2>Pontos</h2>
             <ol id="lista-pontos">
                 <li></li>
             </ol>
         </section>
-        <hr>
-        <section id="aqui">
+        <hr class="separador separador__ultimo>
+        <section id=" aqui ">
             <h2>Geolocalização Atual</h2>
-            <form id="form-ponto">
+            <form id="form-ponto ">
                 <dl>
                     <dt>Latitude</dt>
                     <dd>
@@ -70,8 +61,8 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td><input id="lat-aproximada" size="10" disabled></td>
-                                    <td><input id="lat-precisa" size="10" disabled></td>
+                                    <td><input id="lat-aproximada " size="10 " disabled></td>
+                                    <td><input id="lat-precisa " size="10 " disabled></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -87,17 +78,17 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td><input id="lon-aproximada" size="10" disabled></td>
-                                    <td><input id="lon-precisa" size="10" disabled></td>
+                                    <td><input id="lon-aproximada " size="10 " disabled></td>
+                                    <td><input id="lon-precisa " size="10 " disabled></td>
                                 </tr>
                             </tbody>
                         </table>
                     </dd>
-                    <dt><label for="descricao"> Descrição</label></dt>
-                    <dd><input id="descricao" type="text" required></dd>
+                    <dt><label for="descricao "> Descrição</label></dt>
+                    <dd><input id="descricao " type="text " required></dd>
                 </dl>
                 <br>
-                <button id="btn-marcar">Marcar Ponto</button>
+                <button id="btn-marcar ">Marcar Ponto</button>
             </form>
 
         </section>
@@ -106,13 +97,13 @@
 
     <footer></footer>
 
-    <script src="js/vendor/jquery-3.4.1.min.js"></script>
-    <script src="js/main.js"></script>
+    <script src="js/vendor/jquery-3.4.1.min.js "></script>
+    <script src="js/main.js "></script>
 
     <script>
     </script>
 
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBALQsLXvF_5kFFKJubczKb569l7ozkhoY&callback=initMap" async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBALQsLXvF_5kFFKJubczKb569l7ozkhoY&callback=initMap " async defer></script>
 
 
 </body>

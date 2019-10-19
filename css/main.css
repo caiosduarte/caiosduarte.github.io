@@ -1,34 +1,32 @@
-body {
-  font-family: Arial, Helvetica, sans-serif;
-  color: #222;
- }
- body > header {
-  background-color: #627A14;
-  padding: 1vh 1vw;
-  height: 10vh;
-  box-sizing: border-box;
-  color: #fff;
- }
- body > main {
-  height: 85vh;
- }
- body > footer {
-  height: 5vh;
-  background-color: #B3CB65;
- }
- h1.app-title {
-  font-size: 20px;
- }
- section.main-feature {
-  float: left;
-  background-color: #fbfbfb;
-  width: 70vw;
-  height: 85vh;
- }
- aside.secundary-feature {
-  float: right;
-  background-color: #6F4D8F;
-  width: 20vw;
-  height: 85vh;
-  color: #fff;
+@charset "UTF-8";
+/* estrutura principal */
+.titulo__secundario, .titulo__principal {
+  font-weight: bold;
+  text-transform: uppercase;
 }
+
+.titulo {
+  text-align: center;
+}
+.titulo__principal {
+  font-size: 22px;
+}
+.titulo__secundario {
+  font-size: 18px;
+}
+
+.navegacao__item {
+  display: inline-block;
+  text-transform: uppercase;
+}
+
+/* estilização do mapa do Google Maps API */
+#mapa {
+  width: auto;
+  height: 200px;
+}
+
+/* estilização dos pontos marcados */
+/* estilização dos elementos do formululário */
+
+/*# sourceMappingURL=main.css.map */
