@@ -1,0 +1,40 @@
+/* estrutura principal */
+
+$fonte-maior-tamanho: 22px;
+$razao-aurea: 1.61803398875;
+%titulo-compartilhado {
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.titulo {
+    text-align: center;
+    &__principal {
+        font-size: $fonte-maior-tamanho;
+        @extend %titulo-compartilhado;
+    }
+    &__secundario {
+        font-size: $fonte-maior-tamanho - 4px;
+        @extend %titulo-compartilhado;
+    }
+}
+
+.navegacao {
+    &__item {
+        display: inline-block;
+        text-transform: uppercase;
+    }
+}
+
+
+/* estilização do mapa do Google Maps API */
+
+@import '_mapa.scss';
+
+/* estilização dos pontos marcados */
+
+@import 'pontos.scss';
+
+/* estilização dos elementos do formululário */
+
+@import 'formulario.scss';
