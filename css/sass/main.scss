@@ -1,21 +1,34 @@
 /* estrutura principal */
 
 $desktop: 1024px;
-$fonte-maior-tamanho: 22px;
+$fonte-maior-px: 14px;
+$fonte-maior-em: 1.5em;
+$fonte-sem-serifa: 'Segoe UI',
+'Roboto',
+arial,
+sans-serif;
 $razao-aurea: 1.61803398875;
+@mixin fonte($tamanho, $familia) {
+    font: {
+        size: $tamanho;
+        weight: bold;
+        family: $fonte-sem-serifa;
+    }
+}
+
 %titulo-compartilhado {
-    font-weight: bold;
     text-transform: uppercase;
+    text-align: center;
 }
 
 .titulo {
     text-align: center;
     &__principal {
-        font-size: $fonte-maior-tamanho;
+        @include fonte($fonte-maior-em, $fonte-sem-serifa);
         @extend %titulo-compartilhado;
     }
     &__secundario {
-        font-size: $fonte-maior-tamanho - 4px;
+        @include fonte($fonte-maior-em/$razao-aurea, $fonte-sem-serifa);
         @extend %titulo-compartilhado;
     }
 }

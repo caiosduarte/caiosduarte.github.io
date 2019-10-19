@@ -1,18 +1,22 @@
 @charset "UTF-8";
 /* estrutura principal */
 .titulo__secundario, .titulo__principal {
-  font-weight: bold;
   text-transform: uppercase;
+  text-align: center;
 }
 
 .titulo {
   text-align: center;
 }
 .titulo__principal {
-  font-size: 22px;
+  font-size: 1.5em;
+  font-weight: bold;
+  font-family: "Segoe UI", "Roboto", arial, sans-serif;
 }
 .titulo__secundario {
-  font-size: 18px;
+  font-size: 0.9270509831em;
+  font-weight: bold;
+  font-family: "Segoe UI", "Roboto", arial, sans-serif;
 }
 
 .navegacao__item {
