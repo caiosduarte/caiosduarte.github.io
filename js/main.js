@@ -6,7 +6,7 @@ if ("geolocation" in navigator) {
     var markers = new Array();
 
     function initMap() {
-        map = new google.maps.Map(document.getElementById('mapa'), {
+        map = new google.maps.Map(document.getElementById('map'), {
             center: {
                 lat: -34.397,
                 lng: 150.644

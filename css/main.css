@@ -1,5 +1,9 @@
 @charset "UTF-8";
 /* estrutura principal */
+.secao {
+  margin-top: 5px;
+  padding: 5px;
+}
 .secao__titulo {
   text-align: center;
   text-transform: uppercase;
