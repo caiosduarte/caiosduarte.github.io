@@ -1,22 +1,14 @@
 @charset "UTF-8";
 /* estrutura principal */
-.titulo__secundario, .titulo__principal {
+.secao__titulo {
+  text-align: center;
   text-transform: uppercase;
-  text-align: center;
-}
-
-.titulo {
-  text-align: center;
-}
-.titulo__principal {
-  font-size: 1.3em;
+  font-size: 1.2em;
   font-weight: bold;
   font-family: "Segoe UI", "Roboto", arial, sans-serif;
 }
-.titulo__secundario {
-  font-size: 0.8034441854em;
-  font-weight: bold;
-  font-family: "Segoe UI", "Roboto", arial, sans-serif;
+.secao__titulo--secundario {
+  font-size: 0.7416407865em;
 }
 
 .navegacao {
@@ -28,14 +20,16 @@
 }
 
 /* estilização do mapa do Google Maps API */
-#mapa {
+.mapa {
   width: auto;
   height: 200px;
 }
 
 /* estilização dos pontos marcados */
 /* estilização dos elementos do formululário */
-@media (min-width: 1024px) {
+@media screen and (min-width: 1024px) {
+  /* $fonte-maior-em: 2em; */
+  /* $fonte-maior-px: 22px; */
   .navegacao {
     display: none;
   }

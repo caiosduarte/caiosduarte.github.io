@@ -22,8 +22,8 @@
     <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
   <![endif]-->
 
-    <header>
-        <h1 class="titulo__principal">Marcador de Pontos Georeferenciados</h1>
+    <header class="secao">
+        <h1 class="secao__titulo">Marcador de Pontos Georeferenciados</h1>
         <nav class="navegacao">
             <ul>
                 <li class=".navegacao__item"><a href="#mapa">Mapa</a></li>
@@ -34,20 +34,20 @@
     </header>
 
     <main>
-        <section id="mapa">
-            <h2 class="titulo__secundario">Mapeamento</h2>
-            <div id="map"></div>
+        <section id="mapa" class="secao">
+            <h2 class="secao__titulo secao__titulo--secundario">Mapeamento</h2>
+            <div id="map" class="mapa"></div>
         </section>
         <hr class="separador">
-        <section id="pontos">
-            <h2 class="titulo__secundario">Pontos</h2>
+        <section id="pontos" class="secao">
+            <h2 class="secao__titulo secao__titulo--secundario">Pontos</h2>
             <ol id="lista-pontos">
                 <li></li>
             </ol>
         </section>
-        <hr class="separador separador__ultimo>
-        <section id=" aqui ">
-            <h2 class="titulo__secundario ">Geolocalização Atual</h2>
+        <hr class="separador separador--ultimo">
+        <section id="aqui" class="secao">
+            <h2 class="secao__titulo secao__titulo--secundario ">Geolocalização Atual</h2>
             <form id="form-ponto ">
                 <dl>
                     <dt>Latitude</dt>

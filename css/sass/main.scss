@@ -2,7 +2,7 @@
 
 $desktop: 1024px;
 $fonte-maior-px: 14px;
-$fonte-maior-em: 1.3em;
+$fonte-maior-em: 1.2em;
 $fonte-sem-serifa: 'Segoe UI',
 'Roboto',
 arial,
@@ -16,20 +16,16 @@ $razao-aurea: 1.61803398875;
     }
 }
 
-%titulo-compartilhado {
-    text-transform: uppercase;
-    text-align: center;
-}
-
-.titulo {
-    text-align: center;
-    &__principal {
+.secao {
+    &__titulo {
+        text: {
+            align: center;
+            transform: uppercase;
+        }
         @include fonte($fonte-maior-em, $fonte-sem-serifa);
-        @extend %titulo-compartilhado;
-    }
-    &__secundario {
-        @include fonte($fonte-maior-em/$razao-aurea, $fonte-sem-serifa);
-        @extend %titulo-compartilhado;
+        &--secundario {
+            font-size: $fonte-maior-em/$razao-aurea;
+        }
     }
 }
 
@@ -53,7 +49,9 @@ $razao-aurea: 1.61803398875;
 /* estilização dos elementos do formululário */
 
 @import '_formulario.scss';
-@media (min-width: $desktop) {
+@media screen and (min-width: $desktop) {
+    /* $fonte-maior-em: 2em; */
+    /* $fonte-maior-px: 22px; */
     .navegacao {
         display: none;
     }
