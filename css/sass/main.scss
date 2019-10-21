@@ -18,10 +18,10 @@ $razao-aurea: 1.61803398875;
 
 .secao {
     margin-top: 5px;
-    padding: 5px;
+    padding: 0 5px 5px 5px;
     &--mapa {
         margin-top: 0;
-        padding-top: 0;
+        padding: 0 0 5px 0;
         position: relative;
     }
     &__titulo {
@@ -47,7 +47,7 @@ $razao-aurea: 1.61803398875;
 }
 
 .separador {
-    margin: 0 5px;
+    margin: 0 2px;
     &__lista {
         text-decoration: unset;
     }

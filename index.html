@@ -24,7 +24,8 @@
 
     <header class="secao">
         <h1 class="secao__titulo">Marcador de Pontos Georreferenciados</h1>
-        <!--nav class="navegacao">
+        <!-- menu a ser exibido em versões de tela maiores -->
+        <nav class="navegacao" style="display:none;">
             <ul>
                 <li class=".navegacao__item"><a href="#mapa">Mapa</a></li>
                 <li class=".navegacao__item"><a href="#pontos">Pontos</a></li>
@@ -35,7 +36,9 @@
 
     <main>
         <section id="mapeamento" class="secao secao--mapa">
-            <h2 class="secao__titulo secao__titulo--secundario">Mapeamento</h2>
+            <!-- Se o google maps não estiver habilitado, então exibe as coordenadas atuais e os pontos e coordenadas -->
+            <h2 class="secao__titulo secao__titulo--secundario" style="display:none;">Mapeamento</h2>
+            
             <div id="map" class="mapa"></div>
         </section>
         <hr class="separador">
