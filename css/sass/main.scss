@@ -19,16 +19,21 @@ $razao-aurea: 1.61803398875;
 .secao {
     margin-top: 5px;
     padding: 5px;
+    &--mapa {
+        position: relative;
+    }
     &__titulo {
+        margin: 5px 0;
         text: {
             align: center;
             transform: uppercase;
-        }
+        }        
         @include fonte($fonte-maior-em, $fonte-sem-serifa);
         &--secundario {
             font-size: $fonte-maior-em/$razao-aurea;
         }
     }
+
 }
 
 .navegacao {

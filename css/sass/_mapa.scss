@@ -1,4 +1,5 @@
-.mapa {
-    width: auto;
+.mapa {    
     height: 200px;
+    max-width: $razao-aurea * 200px;    
+    box-sizing: border-box;
 }

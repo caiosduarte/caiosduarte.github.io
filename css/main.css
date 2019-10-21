@@ -4,7 +4,11 @@
   margin-top: 5px;
   padding: 5px;
 }
+.secao--mapa {
+  position: relative;
+}
 .secao__titulo {
+  margin: 5px 0;
   text-align: center;
   text-transform: uppercase;
   font-size: 1.2em;
@@ -25,8 +29,9 @@
 
 /* estilização do mapa do Google Maps API */
 .mapa {
-  width: auto;
   height: 200px;
+  max-width: 323.60679775px;
+  box-sizing: border-box;
 }
 
 /* estilização dos pontos marcados */
