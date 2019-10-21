@@ -57,6 +57,36 @@
 }
 
 /* estilização dos elementos do formululário */
+.teste {
+  font-size: 2px;
+}
+
+.ponto-form {
+  margin: 10px;
+  font-size: 0.7416407865em;
+  font-weight: none;
+  font-family: Arial;
+}
+.ponto-form__label {
+  font-weight: bold;
+  margin-top: 5px;
+}
+.ponto-form__label--requerido {
+  font-weight: bold;
+}
+.ponto-form__label--sub {
+  font-weight: lighter;
+}
+.ponto-form__campo {
+  margin-top: 5px;
+}
+.ponto-form__campo--desabilitado {
+  margin: 3px 3px 0 0;
+}
+.ponto-form__botao {
+  font-weight: bold;
+}
+
 @media screen and (min-width: 1024px) {
   /* $fonte-maior-em: 2em; */
   /* $fonte-maior-px: 22px; */

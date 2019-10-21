@@ -1,0 +1,28 @@
+.teste {
+    font-size: 2px;
+}
+
+.ponto-form {
+    margin: 10px; 
+    
+    @include fonte($fonte-tam-itens, none, Arial);
+    &__label {   
+        font-weight: bold;
+        margin-top: 5px;     
+        &--requerido {
+            font-weight: bold;
+        }        
+        &--sub {
+            font-weight: lighter;
+        }
+    }
+    &__campo {
+        margin-top: 5px;
+        &--desabilitado {
+            margin: 3px 3px 0 0;
+        }
+    }
+    &__botao {
+        font-weight: bold;
+    }
+}

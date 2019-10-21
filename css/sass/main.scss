@@ -66,6 +66,8 @@ $razao-aurea: 1.61803398875;
 /* estilização dos elementos do formululário */
 
 @import '_formulario.scss';
+
+
 @media screen and (min-width: $desktop) {
     /* $fonte-maior-em: 2em; */
     /* $fonte-maior-px: 22px; */
