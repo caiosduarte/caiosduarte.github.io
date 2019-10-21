@@ -1,5 +1,3 @@
-
-
 if ("geolocation" in navigator) {
     var latitude;
     var longitude;
