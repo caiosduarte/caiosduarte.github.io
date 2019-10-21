@@ -3,8 +3,7 @@
 }
 
 .ponto-form {
-    margin: 10px; 
-    
+    margin: 10px;     
     @include fonte($fonte-tam-itens, none, Arial);
     &__label {   
         font-weight: bold;
@@ -18,8 +17,11 @@
     }
     &__campo {
         margin-top: 5px;
+        width: 247px;        
         &--desabilitado {
             margin: 3px 3px 0 0;
+            text-align: right;
+            width: 120px;
         }
     }
     &__botao {

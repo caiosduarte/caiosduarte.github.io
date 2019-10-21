@@ -79,9 +79,12 @@
 }
 .ponto-form__campo {
   margin-top: 5px;
+  width: 247px;
 }
 .ponto-form__campo--desabilitado {
   margin: 3px 3px 0 0;
+  text-align: right;
+  width: 120px;
 }
 .ponto-form__botao {
   font-weight: bold;
