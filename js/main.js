@@ -59,7 +59,7 @@ if ("geolocation" in navigator) {
         let lista = $("#lista-pontos");
         let pontoDaLista = $("<li>");
         let scriptCentraliza = 'centralizaMapa(' + latitude + ',' + longitude + ')';
-        pontoDaLista.append($("<a>").append(descricao).attr("src", "#").attr("onclick", scriptCentraliza));
+        pontoDaLista.append($("<a>").append(descricao).attr("class", "pontos__link").attr("src", "#").attr("onclick", scriptCentraliza));
         lista.prepend(pontoDaLista);
         descricaoCampo.val("");
     });

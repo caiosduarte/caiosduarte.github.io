@@ -1,0 +1,11 @@
+$fonte-tam-itens: $fonte-maior-em/$razao-aurea;
+
+.pontos {
+    @include fonte($fonte-tam-itens, none, Arial);
+    &__item {
+        margin: $fonte-tam-itens/$razao-aurea 0;
+    }
+    &__link {
+        text-decoration: underline;        
+    }
+}

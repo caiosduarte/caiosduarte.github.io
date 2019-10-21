@@ -5,6 +5,8 @@
   padding: 5px;
 }
 .secao--mapa {
+  margin-top: 0;
+  padding-top: 0;
   position: relative;
 }
 .secao__titulo {
@@ -27,14 +29,33 @@
   text-transform: uppercase;
 }
 
+.separador {
+  margin: 0 5px;
+}
+.separador__lista {
+  text-decoration: unset;
+}
+
 /* estilização do mapa do Google Maps API */
 .mapa {
   height: 200px;
-  max-width: 323.60679775px;
+  max-width: 324px;
   box-sizing: border-box;
 }
 
 /* estilização dos pontos marcados */
+.pontos {
+  font-size: 0.7416407865em;
+  font-weight: none;
+  font-family: Arial;
+}
+.pontos__item {
+  margin: 0.4583592135em 0;
+}
+.pontos__link {
+  text-decoration: underline;
+}
+
 /* estilização dos elementos do formululário */
 @media screen and (min-width: 1024px) {
   /* $fonte-maior-em: 2em; */

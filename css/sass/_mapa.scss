@@ -1,5 +1,5 @@
 .mapa {    
     height: 200px;
-    max-width: $razao-aurea * 200px;    
+    max-width: round($razao-aurea * 200px);    
     box-sizing: border-box;
 }

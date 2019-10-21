@@ -8,11 +8,11 @@ $fonte-sem-serifa: 'Segoe UI',
 arial,
 sans-serif;
 $razao-aurea: 1.61803398875;
-@mixin fonte($tamanho, $familia) {
+@mixin fonte($tamanho, $peso, $familia) {
     font: {
         size: $tamanho;
-        weight: bold;
-        family: $fonte-sem-serifa;
+        weight: $peso;
+        family: $familia;
     }
 }
 
@@ -20,6 +20,8 @@ $razao-aurea: 1.61803398875;
     margin-top: 5px;
     padding: 5px;
     &--mapa {
+        margin-top: 0;
+        padding-top: 0;
         position: relative;
     }
     &__titulo {
@@ -28,7 +30,7 @@ $razao-aurea: 1.61803398875;
             align: center;
             transform: uppercase;
         }        
-        @include fonte($fonte-maior-em, $fonte-sem-serifa);
+        @include fonte($fonte-maior-em, bold, $fonte-sem-serifa);
         &--secundario {
             font-size: $fonte-maior-em/$razao-aurea;
         }
@@ -43,6 +45,14 @@ $razao-aurea: 1.61803398875;
         text-transform: uppercase;
     }
 }
+
+.separador {
+    margin: 0 5px;
+    &__lista {
+        text-decoration: unset;
+    }
+}
+
 
 
 /* estilização do mapa do Google Maps API */
