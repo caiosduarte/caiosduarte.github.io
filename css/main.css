@@ -38,8 +38,9 @@
 
 /* estilização do mapa do Google Maps API */
 .mapa {
-  height: 200px;
-  max-width: 324px;
+  height: 225px;
+  max-width: auto;
+  /*round($razao-aurea * 200px);*/
   box-sizing: border-box;
 }
 
@@ -79,12 +80,12 @@
 }
 .ponto-form__campo {
   margin-top: 5px;
-  width: 247px;
+  width: 267px;
 }
 .ponto-form__campo--desabilitado {
   margin: 3px 3px 0 0;
   text-align: right;
-  width: 120px;
+  width: 130px;
 }
 .ponto-form__botao {
   font-weight: bold;
