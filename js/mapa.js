@@ -1,6 +1,6 @@
 
 class MapaGoogleApi {
-    constructor(map, pontos=[]) {
+    constructor(map, ...pontos) {
         this.map = map;
         this.marcadores = new Set();
         pontos.forEach(p => this.marcadores.add(this.getMarcador(p)));       
