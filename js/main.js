@@ -1,114 +1,92 @@
-
+const LAT_INICIAL = -19.85;
+const LNG_INICIAL = -43.8;
 
 if ("geolocation" in navigator) {
     var latitude;
     var longitude;
+    // TODO: substituir por um Map do javascript
+    var erros = [];    
+    var mapa;
 
-    var map;
-    var markers = new Array();
-
-    function initMap() {
-        map = new google.maps.Map(document.getElementById('map'), {
+    function initMap() {     
+        let map = new google.maps.Map(document.getElementById('map'), {
             center: {
-                lat: -34.397,
-                lng: 150.644
+                lat: LAT_INICIAL,
+                lng: LNG_INICIAL
             },
             zoom: 17
         });
-        if (markers) {
-            markers.forEach(pos => {
-                new google.maps.Marker({
-                    position: pos,
-                    map: map
-                });
-            });
-        }
-    }
+        mapa = new MapaGoogleApi(map);
+    };
 
     navigator.geolocation.getCurrentPosition(
-        aproximadaEncontrada,
-        aproximadaErro);
+        determinaLocalizacaoAproximada,
+        trataErroLocalizacaoAproximada
+    );
 
-    var wpid = navigator.geolocation.watchPosition(precisaEncontrada, precisaErro, {
+    var wpid = navigator.geolocation.watchPosition(
+    determinaLocalizacaoPrecisa,
+    trataErroLocalizacaoPrecisa,
+    {
         enableHighAccuracy: true,
         maximumAge: 30000,
         timeout: 27000
-    });
-
-    $("#btn-marcar").click(function(event) {
-        event.preventDefault();        
-        let descricaoCampo = $("#descricao");
-        let descricao = descricaoCampo.val();
-
-        let posicao = {
-            lat: latitude,
-            lng: longitude,
-            title: descricao
-        };
-
-        var marker = new google.maps.Marker({
-            position: posicao,
-            title: descricao
-        });
-
-        markers.push(marker);
-
-        marker.setMap(map);
-
-        centralizaMapa(latitude, longitude);
-
-        let lista = $("#lista-pontos");
-        let pontoDaLista = $("<li>");
-        let scriptCentraliza = 'centralizaMapa(' + latitude + ',' + longitude + ')';
-        pontoDaLista.append($("<a>").append(descricao).attr("class", "pontos__link").attr("src", "#").attr("onclick", scriptCentraliza));
-        lista.prepend(pontoDaLista);
-        descricaoCampo.val("");
-    });
-
+    }
+    );
 } else {
     $("#descricao").attr("disabled", true);
     $("#btn-marcar").attr("disabled", true);
-    console.log("API GEO desabilitada");
-    alert("Não foi possível obter a localização");
+    alert("API de geolocalização indisponível.");
+    throw ("API de geolocalização indisponível.");
 }
 
-function aproximadaEncontrada(position) {
+function determinaLocalizacaoAproximada(position) {
     latitude = position.coords.latitude;
     longitude = position.coords.longitude;
-
-    $("#lat-aproximada").val(position.coords.latitude);
-    $("#lon-aproximada").val(position.coords.longitude);
-
-    if (latitude && longitude) {
-        centralizaMapa(latitude, longitude);
-    }
+    $("#lat-aproximada").val(latitude);
+    $("#lon-aproximada").val(longitude);
+    mapa.centralizaMapa(latitude, longitude);
 }
 
-function aproximadaErro(PositionError) {
+// TODO: Melhorar o tramento de erros
+function trataErroLocalizacaoAproximada(PositionError) {
     console.log("Erro na API GEO: " + PositionError.message);
+    erros.push("Erro na API GEO: " + PositionError.message);
 }
 
-function precisaEncontrada(position) {
+function determinaLocalizacaoPrecisa(position) {
     if (!latitude) {
-        console.log("pegou as coord precisas");
-        centralizaMapa(position.coords.latitude,
-            position.coords.longitude);
+        centralizaMapa(position.coords.latitude, position.coords.longitude);
     }
     latitude = position.coords.latitude;
     longitude = position.coords.longitude;
-
+    navigator.geolocation.clearWatch(wpid);
     $("#lat-precisa").val(latitude);
     $("#lon-precisa").val(longitude);
 }
 
-function precisaErro(PositionError) {
+// TODO: Melhorar o tramento de erros de precisão
+function trataErroLocalizacaoPrecisa(PositionError) {
     console.log("Erro na API GEO: " + PositionError.message);
+    erros.push("Erro na API GEO: " + PositionError.message);
 }
 
-function centralizaMapa(lati, long) {
-    var pos = {
-        lat: lati,
-        lng: long
-    };
-    map.setCenter(pos);
+$("#btn-marcar").click(function(event) {
+    event.preventDefault();
+    adicionaPonto();
+});
+
+
+function adicionaPonto() {
+    let campoDescricao =  $("#descricao");
+    let lista = $("#lista-pontos");
+    let pontoDaLista = $("<li>");
+    let ponto = new Ponto(latitude, longitude, campoDescricao.val());
+    
+    mapa.marcaPonto(ponto);
+
+    let scriptCentraliza = 'mapa.centralizaMapa(' + ponto.latitude + ',' + ponto.longitude + ')';
+    pontoDaLista.append($("<a>").append(ponto.descricao).attr("class", "pontos__link").attr("src", "#").attr("onclick", scriptCentraliza));
+    lista.prepend(pontoDaLista);
+    campoDescricao.val("");
 }
