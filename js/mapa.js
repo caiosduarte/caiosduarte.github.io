@@ -23,7 +23,6 @@ class MapaGoogleApi {
     marcaPonto(ponto) {
         let marcador = new google.maps.Marker(this.getMarcador(ponto));
         marcador.setMap(this.map);
-        /*this.marcadores.push(marcador);*/
         this.centralizaMapaNoPonto(ponto);                
     };
 
