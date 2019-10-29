@@ -2,6 +2,9 @@ class Ponto {
     constructor(latitude, longitude, descricao="") {        
         this.latitude = latitude;
         this.longitude = longitude;
+        if(descricao == undefined || descricao.length <=0 ) {
+            throw new Error("Descrição do ponto é obrigatorio");
+        }
         this.descricao = descricao;
     }
 
@@ -17,4 +20,5 @@ class Ponto {
         return this.longitude;
     };
 }
+
 
