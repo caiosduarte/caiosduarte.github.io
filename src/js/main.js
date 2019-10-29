@@ -1,3 +1,6 @@
+import Ponto from "./ponto.js";
+import MapaGoogleApi from "./mapa.js";
+
 const LAT_INICIAL = -19.85;
 const LNG_INICIAL = -43.8;
 
@@ -90,3 +93,6 @@ function adicionaPonto() {
     lista.prepend(pontoDaLista);
     campoDescricao.val("");
 }
+
+
+*/
