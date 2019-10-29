@@ -1,4 +1,4 @@
-export default class MapaGoogleApi {
+module.exports = class MapaGoogleApi {
     constructor(map, ...pontos) {
         this.map = map;
         this.marcadores = new Set();
@@ -35,6 +35,6 @@ export default class MapaGoogleApi {
         };        
         this.map.setCenter(pos);
     }
-}
+};
 
 

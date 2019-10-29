@@ -1,5 +1,11 @@
 HTML5 API geolocalização:
 
+
+tutorial webpack:
+https://www.webdevdrops.com/webpack-sem-medo-introducao-af889eb659e7/
+https://www.webdevdrops.com/webpack-sem-medo-parte-2-loaders-1d1239df3945
+
+
 https://developer.mozilla.org/pt-BR/docs/Using_geolocation
 
 exemplos:

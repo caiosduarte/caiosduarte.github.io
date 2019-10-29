@@ -1,4 +1,4 @@
-<!doctype html>
+<doctype html>
 <html class="no-js" lang="pt-BR">
 
 <head>
@@ -10,8 +10,8 @@
     <link rel="manifest" href="site.webmanifest">
     <link rel="apple-touch-icon" href="icon.png">
 
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/main.css">
+    <!--link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/main.css"-->
 
     <meta name="theme-color" content="#fafafa">
 
@@ -24,19 +24,10 @@
 
     <header id="header" class="secao">
         <h1 class="secao__titulo">Marcador de Pontos Georreferenciados</h1>
-        <!-- menu a ser exibido em versões de tela maiores -->
-        <nav class="navegacao" style="display:none;">
-            <ul>
-                <li class=".navegacao__item"><a href="#mapa">Mapa</a></li>
-                <li class=".navegacao__item"><a href="#pontos">Pontos</a></li>
-                <li class=".navegacao__item"><a href="#aqui">Geolocalização Atual</a></li>
-            </ul>
-        </nav-->
     </header>
 
     <main>
-        <section id="mapeamento" class="secao secao--mapa">
-            <!-- Se o google maps não estiver habilitado, então exibe as coordenadas atuais e os pontos e coordenadas -->
+        <section id="mapeamento" class="secao secao--mapa">            
             <h2 class="secao__titulo secao__titulo--secundario" style="display:none;">Mapeamento</h2>
             
             <div id="map" class="mapa"></div>
@@ -102,11 +93,12 @@
     
 
     <script src="js/vendor/jquery-3.4.1.min.js"></script>
+    
     <!--script src="js/ponto.js"></script>
-    <script src="js/mapa.js"></script-->
-    <script src="js/main.js" type="module"></script>
+    <script src="js/mapa.js"></script>
+    <script src="js/main.js" type="module"></script-->
 
-    <!--script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBALQsLXvF_5kFFKJubczKb569l7ozkhoY&callback=initMap" async defer></script-->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBALQsLXvF_5kFFKJubczKb569l7ozkhoY&callback=initMap" async defer></script>
 
 
 </body>

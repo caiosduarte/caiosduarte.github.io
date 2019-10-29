@@ -23,7 +23,7 @@ module.exports = {
                     {
                         loader: 'babel-loader',
                         options: {
-                            presets: ['es2015', 'react']
+                            presets: ['es2015']
                         }
                     }
                 ]
@@ -38,6 +38,10 @@ module.exports = {
                     fallback: "style-loader",
                     use: "css-loader"
                 })
+            },
+            {  
+                test: /\.scss$/,  
+                use: ['style-loader', 'css-loader', 'sass-loader']  
             }
         ]
     },

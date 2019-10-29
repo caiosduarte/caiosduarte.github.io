@@ -1,11 +1,11 @@
-import Ponto from "./ponto.js";
-import MapaGoogleApi from "./mapa.js";
+var Ponto = require("./ponto.js");
+var MapaGoogleApi = require("./mapa.js");
 
 const LAT_INICIAL = -19.85;
 const LNG_INICIAL = -43.8;
 
 if ("geolocation" in navigator) {
-    var latitude;
+    var latitude;      
     var longitude;
     // TODO: substituir por um Map do javascript
     var erros = [];    
@@ -95,4 +95,3 @@ function adicionaPonto() {
 }
 
 
-*/
