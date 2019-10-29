@@ -5,3 +5,4 @@
 *.map
 *.bak
 *.orig
+node_modules/
