@@ -11,7 +11,7 @@ module.exports = {
         filename: 'bundle.js'
     },
     resolve: {
-        extensions: [".js", ".jsx", ".scss"]
+        extensions: [".js", ".jsx"]
     },
     module: {
         rules: [
@@ -40,9 +40,10 @@ module.exports = {
                 })
             },
             {  
-                test: /\.scss$/,  
+                test: /\.s[ac]ss$/,  
                 use: ['style-loader', 'css-loader', 'sass-loader']  
             }
+
         ]
     },
 
