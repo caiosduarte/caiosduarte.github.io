@@ -91,10 +91,10 @@ function adicionaPonto() {
 
     mapa.marcaPonto(ponto);
 
-    // criado role dos links PONTO para acessibilidade com mouse e teclas espaço e enter, atendendo o princípio WCAG, 2 - OPERÁVEL
+    // criado role button nos links PONTO para acessibilidade com mouse e teclas espaço e enter, atendendo o princípio WCAG, 2 - OPERÁVEL
     let scriptOnClick = `centraliza(${ponto.latitude}, ${ponto.longitude})`;
     let scriptOnKeyPress = `centralizaComTecla(${ponto.latitude}, ${ponto.longitude})`;
-    lista.innerHTML += `<li><a class="pontos__link" role="button" onclick="${scriptOnClick}"
+    lista.innerHTML += `<li><a class="pontos__link" role="button" aria-label="Centraliza ponto no mapa" onclick="${scriptOnClick}"
     onKeyPress="${scriptOnKeyPress}">${ponto.descricao}</li>`;
     campoDescricao.value = "";    
 }
