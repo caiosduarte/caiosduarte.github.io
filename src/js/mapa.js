@@ -1,4 +1,4 @@
-module.exports = class MapaGoogleApi {
+class MapaGoogleApi {
     constructor(map, ...pontos) {
         this.map = map;
         this.marcadores = new Set();
@@ -36,5 +36,7 @@ module.exports = class MapaGoogleApi {
         this.map.setCenter(pos);
     }
 };
+
+export { MapaGoogleApi };
 
 

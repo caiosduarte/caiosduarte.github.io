@@ -1,5 +1,5 @@
 // exportação da classe Ponto para utilizar modules
-module.exports = class Ponto {
+class Ponto {
     constructor(latitude, longitude, descricao="") {        
         this.latitude = latitude;
         this.longitude = longitude;
@@ -21,5 +21,7 @@ module.exports = class Ponto {
         return this.longitude;
     };
 };
+
+export {Ponto};
 
 
