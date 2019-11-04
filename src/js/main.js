@@ -91,13 +91,24 @@ function adicionaPonto() {
 
     mapa.marcaPonto(ponto);
 
-    let scriptCentraliza = `centralizaMapa(${ponto.latitude}, ${ponto.longitude})`;
-    lista.innerHTML += `<li><a class="pontos__link" src="#" onclick="${scriptCentraliza}">${ponto.descricao}</li>`;
+    // criado role dos links PONTO para acessibilidade com mouse e teclas espaço e enter, atendendo o princípio WCAG, 2 - OPERÁVEL
+    let scriptOnClick = `centraliza(${ponto.latitude}, ${ponto.longitude})`;
+    let scriptOnKeyPress = `centralizaComTecla(${ponto.latitude}, ${ponto.longitude})`;
+    lista.innerHTML += `<li><a class="pontos__link" src="#" onclick="${scriptOnClick}"
+    onKeyPress="${scriptOnKeyPress}">${ponto.descricao}</li>`;
     campoDescricao.value = "";    
 }
 
-function centralizaMapa(lat, lon) {
+function centraliza(lat, lon) {
     mapa.centralizaMapa(lat, lon);
+}
+
+function centralizaComTecla() {
+  // checa se o espaço ou enter foram pressionados
+  if (event.keyCode === 32 || event.keyCode === 13) {    
+    event.preventDefault();
+    centraliza(lat, lon);
+  }    
 }
 
 
