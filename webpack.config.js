@@ -39,10 +39,26 @@ module.exports = {
                     use: "css-loader"
                 })
             },
+            {
+                test: /\.scss$/,
+                use: ExtractTextPlugin.extract({
+                  fallback: 'style-loader',
+                  use: [
+                    {
+                      loader: 'css-loader'
+                    },
+                    {
+                      loader: 'sass-loader',
+                    }
+                  ]
+                })
+            }
+            /*
             {  
                 test: /\.s[ac]ss$/,  
                 use: ['style-loader', 'css-loader', 'sass-loader']  
             }
+            */
 
         ]
     },
@@ -52,7 +68,7 @@ module.exports = {
             filename: 'index.html',
             template: path.join(__dirname, 'src/index.html')
         }),
-        new ExtractTextPlugin('style.css')//,
+        new ExtractTextPlugin('style.css'),
         new UglifyJSPlugin()
     ],
     devServer: {
