@@ -16,6 +16,7 @@ window.initMap = function() {
     mapa = new MapaGoogleApi(map);
 };
 
+
 if ("geolocation" in navigator) {
     var latitude;      
     var longitude;
@@ -38,19 +39,13 @@ if ("geolocation" in navigator) {
     }
     );
 } else {
-    $("#descricao").attr("disabled", true);
-    $("#btn-marcar").attr("disabled", true);
+    document.querySelector("#descricao").setAttribute("disabled", "disabled");
+    document.querySelector("#btn-marcar").setAttribute("disabled", "disabled");
     alert("API de geolocalização indisponível.");
     throw ("API de geolocalização indisponível.");
 }
 
-/*
-$("#btn-marcar").click(function(event) {
-    event.preventDefault();
-    adicionaPonto();
-});
-*/
-document.querySelector("#btn-marcar").addEventListener("onclick", function(event) {
+document.querySelector("#btn-marcar").addEventListener("click", function(event) {
     event.preventDefault();
     adicionaPonto();
 });
@@ -58,9 +53,7 @@ document.querySelector("#btn-marcar").addEventListener("onclick", function(event
 function determinaLocalizacaoAproximada(position) {
     latitude = position.coords.latitude;
     longitude = position.coords.longitude;
-    //$("#lat-aproximada").val(latitude);
     document.querySelector("#lat-aproximada").value = latitude;
-    //$("#lon-aproximada").val(longitude);
     document.querySelector("#lon-aproximada").value = longitude;
     mapa.centralizaMapa(latitude, longitude);
 }
@@ -78,8 +71,6 @@ function determinaLocalizacaoPrecisa(position) {
     latitude = position.coords.latitude;
     longitude = position.coords.longitude;
     navigator.geolocation.clearWatch(wpid);
-    //$("#lat-precisa").val(latitude);
-    //$("#lon-precisa").val(longitude);
 
     document.querySelector("#lat-precisa").value = latitude;    
     document.querySelector("#lon-precisa").value = longitude;
@@ -93,23 +84,20 @@ function trataErroLocalizacaoPrecisa(PositionError) {
 
 
 function adicionaPonto() {
-    //let campoDescricao =  $("#descricao");
-    //let lista = $("#lista-pontos");
-    //let pontoDaLista = $("<li>");
     let campoDescricao = document.querySelector("#descricao");
     let lista = document.querySelector("#lista-pontos");
-    let pontoDalista = document.createElement("<li>");
 
-    let ponto = new Ponto(latitude, longitude, campoDescricao.val());
-    
+    let ponto = new Ponto(latitude, longitude, campoDescricao.value);
+
     mapa.marcaPonto(ponto);
 
-    let scriptCentraliza = 'mapa.centralizaMapa(' + ponto.latitude + ',' + ponto.longitude + ')';
-    //pontoDaLista.append($("<a>").append(ponto.descricao).attr("class", "pontos__link").attr("src", "#").attr("onclick", scriptCentraliza));
-    //lista.prepend(pontoDaLista);
-    //campoDescricao.val("");
-    lista.innerHtml = `<li><a att="pontos__link" src="#" onclick="${scriptCentraliza}">${ponto.descricao}</li>` + lista.innerHtml;
-    
+    let scriptCentraliza = `centralizaMapa(${ponto.latitude}, ${ponto.longitude})`;
+    lista.innerHTML += `<li><a class="pontos__link" src="#" onclick="${scriptCentraliza}">${ponto.descricao}</li>`;
+    campoDescricao.value = "";    
+}
+
+function centralizaMapa(lat, lon) {
+    mapa.centralizaMapa(lat, lon);
 }
 
 
