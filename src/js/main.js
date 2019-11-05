@@ -46,16 +46,20 @@ if ("geolocation" in navigator) {
     throw new Error("API de geolocalização indisponível.");
 }
 
-function desabilitaForm() {    
-    console.log("desabilita");
+function desabilitaForm(habilita) {        
     //document.querySelector("#descricao").setAttribute("disabled", "disabled");
     //document.querySelector("#btn-marcar").setAttribute("disabled", "disabled");    
-    let form = querySelector("#form-ponto");
-    form.lat-aproximada.classList.add("ponto-form__campo--alerta");
-    form.lat-precisa.classList.add("ponto-form__campo--alerta");
-    form.lon-aproximada.classList.add("ponto-form__campo--alerta");
-    form.lon-precisa.classList.add("ponto-form__campo--alerta");
-    form.descricao.classList.add("ponto-form__campo--alerta");
+    let form = document.querySelector("#form-ponto");
+    //form.lat_aproximada.classList.add("ponto-form__campo--alerta");
+    //form.lat_precisa.classList.add("ponto-form__campo--alerta");
+    //form.lon_aproximada.classList.add("ponto-form__campo--alerta");
+    //form.lon_precisa.classList.add("ponto-form__campo--alerta");
+    if(habilita) {
+        form.descricao.classList.add("ponto-form__campo--alerta");
+    } else {
+        form.descricao.classList.remove("ponto-form__campo--alerta");
+    }
+    
 }
 
 document.querySelector("#btn-marcar").addEventListener("click", function(event) {
@@ -100,16 +104,21 @@ function adicionaPonto() {
     let campoDescricao = document.querySelector("#descricao");
     let lista = document.querySelector("#lista-pontos");
 
-    let ponto = new Ponto(latitude, longitude, campoDescricao.value);
+    try {
+        var ponto = new Ponto(latitude, longitude, campoDescricao.value);
+        mapa.marcaPonto(ponto);
 
-    mapa.marcaPonto(ponto);
-
-    // criado role button nos links PONTO para acessibilidade com mouse e teclas espaço e enter, atendendo o princípio WCAG, 2 - OPERÁVEL
-    let param = `(${ponto.latitude}, ${ponto.longitude})`;
-    lista.innerHTML += `<li class="pontos__item"><a class="pontos__link" role="button" aria-label='Centraliza ponto "${ponto.descricao}" no mapa' onclick="centraliza${param}"
-    onKeyDown="centralizaComTecla${param}">${ponto.descricao}</li>`;
-    campoDescricao.value = "";    
-    campoDescricao.focus();
+        // criado role button nos links PONTO para acessibilidade com mouse e teclas espaço e enter, atendendo o princípio WCAG, 2 - OPERÁVEL
+        let param = `(${ponto.latitude}, ${ponto.longitude})`;
+        lista.innerHTML += `<li class="pontos__item"><a class="pontos__link" role="button" aria-label='Centraliza ponto "${ponto.descricao}" no mapa' onclick="centraliza${param}"
+        onKeyDown="centralizaComTecla${param}">${ponto.descricao}</li>`;
+        campoDescricao.value = "";    
+        campoDescricao.focus();
+        desabilitaForm(false);
+    
+    } catch(e) {
+        desabilitaForm(true);
+    }
 }
 
 window.centraliza = function (lat, lon) {

@@ -97,7 +97,7 @@
 }
 .ponto-form__campo--alerta {
   display: inline;
-  border-color: yellow;
+  border-color: coral;
   /* colocar o icone de alerta */
 }
 .ponto-form__botao {
