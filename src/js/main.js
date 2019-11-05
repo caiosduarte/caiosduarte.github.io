@@ -92,21 +92,21 @@ function adicionaPonto() {
 
     // criado role button nos links PONTO para acessibilidade com mouse e teclas espaço e enter, atendendo o princípio WCAG, 2 - OPERÁVEL
     let param = `(${ponto.latitude}, ${ponto.longitude})`;
-    lista.innerHTML += `<li><a class="pontos__link" role="button" aria-label="Centraliza ponto ${ponto.descricao} no mapa" onclick="centraliza${param}"
+    lista.innerHTML += `<li><a class="pontos__link" role="button" aria-label="Centraliza ponto \"${ponto.descricao}\" no mapa" onclick="centraliza${param}"
     onKeyDown="centralizaComTecla${param}">${ponto.descricao}</li>`;
     campoDescricao.value = "";    
 }
 
-function centraliza(lat, lon) {
+window.centraliza = function (lat, lon) {
     mapa.centralizaMapa(lat, lon);
-}
+};
 
-function centralizaComTecla() {
+window.centralizaComTecla = function () {
   // checa se o espaço ou enter foram pressionados
   if (event.keyCode === 32 || event.keyCode === 13) {    
     event.preventDefault();
     centraliza(lat, lon);
   }    
-}
+};
 
 

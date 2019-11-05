@@ -3,9 +3,17 @@ $fonte-tam-itens: $fonte-maior-em/$razao-aurea;
 .pontos {
     @include fonte($fonte-tam-itens, none, Arial);
     &__item {
-        margin: $fonte-tam-itens/$razao-aurea 0;
+        margin-top: 7px;
     }
     &__link {
         text-decoration: underline;        
+        padding: 2px;
+        background-color: navy;
+        color: white;
+        cursor: default;
+        &:hover, &:focus, &:active {
+            background-color: white;
+            color: navy;
+        }     
     }
 }

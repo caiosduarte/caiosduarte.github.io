@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* estrutura principal */
 .secao {
   margin-top: 5px;
@@ -50,10 +51,18 @@
   font-family: Arial;
 }
 .pontos__item {
-  margin: 0.4583592135em 0;
+  margin-top: 7px;
 }
 .pontos__link {
   text-decoration: underline;
+  padding: 2px;
+  background-color: navy;
+  color: white;
+  cursor: default;
+}
+.pontos__link:hover, .pontos__link:focus, .pontos__link:active {
+  background-color: white;
+  color: navy;
 }
 
 /* estilização dos elementos do formululário */
