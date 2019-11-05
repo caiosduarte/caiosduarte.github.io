@@ -82,7 +82,6 @@ function trataErroLocalizacaoPrecisa(PositionError) {
     erros.push("Erro na API GEO: " + PositionError.message);
 }
 
-
 function adicionaPonto() {
     let campoDescricao = document.querySelector("#descricao");
     let lista = document.querySelector("#lista-pontos");
@@ -92,10 +91,9 @@ function adicionaPonto() {
     mapa.marcaPonto(ponto);
 
     // criado role button nos links PONTO para acessibilidade com mouse e teclas espaço e enter, atendendo o princípio WCAG, 2 - OPERÁVEL
-    let scriptOnClick = `centraliza(${ponto.latitude}, ${ponto.longitude})`;
-    let scriptOnKeyPress = `centralizaComTecla(${ponto.latitude}, ${ponto.longitude})`;
-    lista.innerHTML += `<li><a class="pontos__link" role="button" aria-label="Centraliza ponto no mapa" onclick="${scriptOnClick}"
-    onKeyPress="${scriptOnKeyPress}">${ponto.descricao}</li>`;
+    let param = `(${ponto.latitude}, ${ponto.longitude})`;
+    lista.innerHTML += `<li><a class="pontos__link" role="button" aria-label="Centraliza ponto ${ponto.descricao} no mapa" onclick="centraliza${param}"
+    onKeyDown="centralizaComTecla${param}">${ponto.descricao}</li>`;
     campoDescricao.value = "";    
 }
 
