@@ -1,7 +1,6 @@
 import { Ponto } from './ponto';
 import { MapaGoogleApi } from './mapa';
 
-
 const LAT_INICIAL = -19.85;
 const LNG_INICIAL = -43.8;
 
@@ -24,25 +23,39 @@ if ("geolocation" in navigator) {
     var erros = [];    
     var mapa;
 
-    navigator.geolocation.getCurrentPosition(
-        determinaLocalizacaoAproximada,
-        trataErroLocalizacaoAproximada
-    );
-
-    var wpid = navigator.geolocation.watchPosition(
-    determinaLocalizacaoPrecisa,
-    trataErroLocalizacaoPrecisa,
-    {
-        enableHighAccuracy: true,
-        maximumAge: 30000,
-        timeout: 27000
+    try {
+        navigator.geolocation.getCurrentPosition(
+            determinaLocalizacaoAproximada,
+            trataErroLocalizacaoAproximada
+        );
+    
+        var wpid = navigator.geolocation.watchPosition(
+        determinaLocalizacaoPrecisa,
+        trataErroLocalizacaoPrecisa,
+        {
+            enableHighAccuracy: true,
+            maximumAge: 30000,
+            timeout: 27000
+        }
+        );    
+    } catch(e) {
+        desabilitaForm();    
     }
-    );
 } else {
-    document.querySelector("#descricao").setAttribute("disabled", "disabled");
-    document.querySelector("#btn-marcar").setAttribute("disabled", "disabled");
-    alert("API de geolocalização indisponível.");
-    throw ("API de geolocalização indisponível.");
+    desabilitaForm();
+    throw new Error("API de geolocalização indisponível.");
+}
+
+function desabilitaForm() {    
+    console.log("desabilita");
+    //document.querySelector("#descricao").setAttribute("disabled", "disabled");
+    //document.querySelector("#btn-marcar").setAttribute("disabled", "disabled");    
+    let form = querySelector("#form-ponto");
+    form.lat-aproximada.classList.add("ponto-form__campo--alerta");
+    form.lat-precisa.classList.add("ponto-form__campo--alerta");
+    form.lon-aproximada.classList.add("ponto-form__campo--alerta");
+    form.lon-precisa.classList.add("ponto-form__campo--alerta");
+    form.descricao.classList.add("ponto-form__campo--alerta");
 }
 
 document.querySelector("#btn-marcar").addEventListener("click", function(event) {
@@ -62,6 +75,7 @@ function determinaLocalizacaoAproximada(position) {
 function trataErroLocalizacaoAproximada (PositionError) {
     console.log("Erro na API GEO: " + PositionError.message);
     erros.push("Erro na API GEO: " + PositionError.message);
+    throw new Error(PositionError.message);
 }
 
 function determinaLocalizacaoPrecisa(position) {
@@ -92,9 +106,10 @@ function adicionaPonto() {
 
     // criado role button nos links PONTO para acessibilidade com mouse e teclas espaço e enter, atendendo o princípio WCAG, 2 - OPERÁVEL
     let param = `(${ponto.latitude}, ${ponto.longitude})`;
-    lista.innerHTML += `<li class="pontos__item"><a class="pontos__link" role="button" aria-label="Centraliza ponto \"${ponto.descricao}\" no mapa" onclick="centraliza${param}"
+    lista.innerHTML += `<li class="pontos__item"><a class="pontos__link" role="button" aria-label='Centraliza ponto "${ponto.descricao}" no mapa' onclick="centraliza${param}"
     onKeyDown="centralizaComTecla${param}">${ponto.descricao}</li>`;
     campoDescricao.value = "";    
+    campoDescricao.focus();
 }
 
 window.centraliza = function (lat, lon) {

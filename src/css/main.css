@@ -95,6 +95,11 @@
   text-align: right;
   width: 140px;
 }
+.ponto-form__campo--alerta {
+  display: inline;
+  border-color: yellow;
+  /* colocar o icone de alerta */
+}
 .ponto-form__botao {
   font-weight: bold;
 }

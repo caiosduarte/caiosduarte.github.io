@@ -23,6 +23,11 @@
             text-align: right;
             width: 140px;
         }
+        &--alerta {
+            display: inline;
+            border-color: yellow;
+            /* colocar o icone de alerta */
+        }
     }
     &__botao {
         font-weight: bold;
