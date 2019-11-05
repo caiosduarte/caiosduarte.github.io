@@ -55,7 +55,6 @@
 }
 .pontos__link {
   /* link de pontos com contraste para cumprir o primeiro princípio WCAG - 1 PERCEPTÍVEL */
-  text-decoration: underline;
   padding: 2px;
   background-color: navy;
   color: white;

@@ -6,8 +6,7 @@ $fonte-tam-itens: $fonte-maior-em/$razao-aurea;
         margin-top: 10px;
     }
     &__link {
-        /* link de pontos com contraste para cumprir o primeiro princípio WCAG - 1 PERCEPTÍVEL */
-        text-decoration: underline;        
+        /* link de pontos com contraste para cumprir o primeiro princípio WCAG - 1 PERCEPTÍVEL */        
         padding: 2px;
         background-color: navy;
         color: white;
