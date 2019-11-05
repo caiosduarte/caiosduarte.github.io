@@ -51,9 +51,10 @@
   font-family: Arial;
 }
 .pontos__item {
-  margin-top: 7px;
+  margin-top: 10px;
 }
 .pontos__link {
+  /* link de pontos com contraste para cumprir o primeiro princípio WCAG - 1 PERCEPTÍVEL */
   text-decoration: underline;
   padding: 2px;
   background-color: navy;

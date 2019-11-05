@@ -92,7 +92,7 @@ function adicionaPonto() {
 
     // criado role button nos links PONTO para acessibilidade com mouse e teclas espaço e enter, atendendo o princípio WCAG, 2 - OPERÁVEL
     let param = `(${ponto.latitude}, ${ponto.longitude})`;
-    lista.innerHTML += `<li><a class="pontos__link" role="button" aria-label="Centraliza ponto \"${ponto.descricao}\" no mapa" onclick="centraliza${param}"
+    lista.innerHTML += `<li class="pontos__item"><a class="pontos__link" role="button" aria-label="Centraliza ponto \"${ponto.descricao}\" no mapa" onclick="centraliza${param}"
     onKeyDown="centralizaComTecla${param}">${ponto.descricao}</li>`;
     campoDescricao.value = "";    
 }
