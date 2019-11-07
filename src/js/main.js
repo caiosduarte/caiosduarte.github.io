@@ -1,5 +1,7 @@
 import { Ponto } from './ponto';
 import { MapaGoogleApi } from './mapa';
+import { LocalStorage } from './storage';
+
 
 const LAT_INICIAL = -19.85;
 const LNG_INICIAL = -43.8;
@@ -13,8 +15,12 @@ window.initMap = function() {
         zoom: 17
     });
     mapa = new MapaGoogleApi(map);
+    //storage = new Storage();
+    storage.get().forEach(p => mapa.marcaPonto(p));
 };
 
+
+var storage = new LocalStorage();
 
 if ("geolocation" in navigator) {
     var latitude;      
@@ -22,6 +28,10 @@ if ("geolocation" in navigator) {
     // TODO: substituir por um Map do javascript
     var erros = [];    
     var mapa;
+
+    
+
+    
 
     try {
         navigator.geolocation.getCurrentPosition(
@@ -107,6 +117,7 @@ function adicionaPonto() {
     try {
         var ponto = new Ponto(latitude, longitude, campoDescricao.value);
         mapa.marcaPonto(ponto);
+        storage.set(ponto);
 
         // criado role button nos links PONTO para acessibilidade com mouse e teclas espaço e enter, atendendo o princípio WCAG, 2 - OPERÁVEL
         let param = `(${ponto.latitude}, ${ponto.longitude})`;
