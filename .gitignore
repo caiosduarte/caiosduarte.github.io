@@ -6,4 +6,3 @@
 *.bak
 *.orig
 node_modules/
-dist/
