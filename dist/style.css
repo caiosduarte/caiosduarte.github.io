@@ -1,0 +1,160 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}@charset "UTF-8";
+/* estrutura principal */
+.secao {
+  margin-top: 5px;
+  padding: 0 5px 5px 5px;
+}
+.secao--mapa {
+  margin-top: 0;
+  padding: 0 0 5px 0;
+  position: relative;
+}
+.secao__titulo {
+  margin: 5px 0;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 1.2em;
+  font-weight: bold;
+  font-family: "Segoe UI", "Roboto", arial, sans-serif;
+}
+.secao__titulo--secundario {
+  font-size: 0.7416407865em;
+}
+
+.navegacao {
+  display: none;
+}
+.navegacao__item {
+  display: inline-block;
+  text-transform: uppercase;
+}
+
+.separador {
+  margin: 0 2px;
+}
+.separador__lista {
+  text-decoration: unset;
+}
+
+/* estilização do mapa do Google Maps API */
+.mapa {
+  height: 270px;
+  max-width: auto;
+  /*round($razao-aurea * 200px);*/
+  box-sizing: border-box;
+}
+
+/* estilização dos pontos marcados */
+.pontos {
+  font-size: 0.7416407865em;
+  font-weight: none;
+  font-family: Arial;
+}
+.pontos__item {
+  margin-top: 10px;
+}
+.pontos__link {
+  /* link de pontos com contraste para cumprir o primeiro princípio WCAG - 1 PERCEPTÍVEL */
+  padding: 2px;
+  background-color: navy;
+  color: white;
+  cursor: default;
+}
+.pontos__link:hover, .pontos__link:focus, .pontos__link:active {
+  background-color: white;
+  color: navy;
+}
+
+/* estilização dos elementos do formululário */
+.teste {
+  font-size: 2px;
+}
+
+.ponto-form {
+  margin: 10px;
+  font-size: 0.7416407865em;
+  font-weight: none;
+  font-family: Arial;
+}
+.ponto-form__label {
+  font-weight: bold;
+  margin-top: 5px;
+}
+.ponto-form__label--requerido {
+  font-weight: bold;
+}
+.ponto-form__label--sub {
+  font-weight: lighter;
+}
+.ponto-form__campo {
+  margin-top: 5px;
+  width: 287px;
+}
+.ponto-form__campo--desabilitado {
+  margin: 3px 3px 0 0;
+  text-align: right;
+  width: 140px;
+}
+.ponto-form__campo--alerta {
+  display: inline;
+  border-color: coral;
+  /* colocar o icone de alerta */
+}
+.ponto-form__botao {
+  font-weight: bold;
+}
+
+@media screen and (min-width: 1024px) {
+  /* $fonte-maior-em: 2em; */
+  /* $fonte-maior-px: 22px; */
+  .navegacao {
+    display: none;
+  }
+}
