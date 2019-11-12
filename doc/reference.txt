@@ -1,3 +1,13 @@
+OUTRAS APIs DE MAPA:
+
+https://mundoapi.com.br/apis-publicadas/8-alternativas-poderosas-para-a-api-do-google-maps/
+
+IMPLEMENTAÇÃO DO MENU ESTILO CARD:
+
+https://www.w3schools.com/howto/howto_js_sidenav.asp
+
+EXEMPLO DE USO DO CONSOLE:
+
 Comandos e pontos:
 Fórum = -19.9213056, -43.9476224
 
@@ -7,8 +17,7 @@ var p2 = new Ponto(-19.93, -43.97, "Fórum");
 mapa.marcaPonto(p1); 
 mapa.marcaPonto(p2); 
 
-HTML5 API geolocalização:
-
+HTML5 API GEOLOCALIZAÇÃO:
 
 tutorial webpack:
 https://www.webdevdrops.com/webpack-sem-medo-introducao-af889eb659e7/
