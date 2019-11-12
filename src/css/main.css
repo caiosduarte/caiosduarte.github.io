@@ -5,8 +5,8 @@
   padding: 0 5px 5px 5px;
 }
 .secao--mapa {
-  margin-top: 0;
-  padding: 0 0 5px 0;
+  margin: 0;
+  padding: 0;
   position: relative;
 }
 .secao__titulo {
@@ -38,9 +38,8 @@
 
 /* estilização do mapa do Google Maps API */
 .mapa {
-  height: 270px;
-  max-width: auto;
-  /*round($razao-aurea * 200px);*/
+  height: 100vh;
+  width: 100vw;
   box-sizing: border-box;
 }
 

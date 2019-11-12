@@ -10,9 +10,49 @@
     <link rel="manifest" href="site.webmanifest">
     <link rel="apple-touch-icon" href="icon.png">
 
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
-
     <meta name="theme-color" content="#fafafa">
+
+    <style>
+        .sidenav {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            /*background-color: #111;*/        
+            background-color: white;        
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+        }
+
+        .sidenav a {
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            font-size: 25px;
+            color: #818181;
+            display: block;
+            transition: 0.3s;
+        }
+
+        .sidenav a:hover {
+            color: #f1f1f1;
+        }
+
+        .sidenav .closebtn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+        }
+
+        @media screen and (max-height: 450px) {
+            .sidenav {padding-top: 15px;}
+            .sidenav a {font-size: 18px;}
+        }        
+    </style>
 
 </head>
 
@@ -21,27 +61,18 @@
     <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
   <![endif]-->
 
-    <header id="header" class="secao">
-        <h1 class="secao__titulo">Marcador de Pontos Georreferenciados</h1>
-    </header>
-
-    <main>
-        <section id="mapeamento" class="secao secao--mapa">            
-            <h2 class="secao__titulo secao__titulo--secundario" style="display:none;">Mapeamento</h2>
-            
-            <div id="map" class="mapa"></div>
-        </section>
-        <hr class="separador">
-        <section id="pontos" class="secao">
-            <h2 class="secao__titulo secao__titulo--secundario">Pontos</h2>
-            <ol id="lista-pontos" class="pontos">
-            </ol>
-        </section>
-        <hr class="separador">
+    <header id="mySidenav" class="secao sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <h1 class="secao__titulo" style="display: none;">Marcador de Pontos Georreferenciados</h1>        
         <section id="aqui" class="secao">
             <h2 class="secao__titulo secao__titulo--secundario">Geolocalização Atual</h2>
             <form id="form-ponto" class="ponto-form">
                 <dl>
+                    <dt class="ponto-form__label ponto-form__label--requerido"><label for="descricao"> Descrição</label></dt>
+                    <dd>
+                        <input id="descricao" name="descricao" class="ponto-form__campo" type="text" required>                        
+                    </dd>
+    
                     <dt class="ponto-form__label">Latitude</dt>
                     <dd>
                         <table class="ponto-form__coordenadas">
@@ -76,22 +107,41 @@
                             </tbody>
                         </table>
                     </dd>
-                    <dt class="ponto-form__label ponto-form__label--requerido"><label for="descricao"> Descrição</label></dt>
-                    <dd>
-                        <input id="descricao" name="descricao" class="ponto-form__campo" type="text" required>                        
-                    </dd>
                 </dl>
                 <br>
                 <button id="btn-marcar" class="ponto-form__botao" aria-label="Marca ponto no mapa">Marcar Ponto</button>
             </form>
-
+            <section id="pontos" class="secao">
+                    <h2 class="secao__titulo secao__titulo--secundario">Pontos</h2>
+                    <ol id="lista-pontos" class="pontos">
+                    </ol>
+            </section>
+        
         </section>
 
-        
-        <footer id="footer"></footer>
+    </header>        
+    <main>
+        <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+        <section id="mapeamento" class="secao secao--mapa">            
+            <h2 class="secao__titulo secao__titulo--secundario" style="display:none;">Mapeamento</h2>            
+            <div id="map" class="mapa"></div>
+        </section>                
     </main>
 
+    <footer id="footer"></footer>
+
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD21roOt3t92rTBywi3evpWw-gxLLlqoMg&callback=initMap" async defer></script>
+
+
+    <script>
+        function openNav() {
+            document.getElementById("mySidenav").style.width = "315px";
+        }
+        
+        function closeNav() {
+            document.getElementById("mySidenav").style.width = "0";
+        }
+    </script>
 
 </body>
 
