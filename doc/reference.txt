@@ -1,3 +1,8 @@
+
+HTML5 API GEOLOCALIZAÇÃO + OPENSTREET MAPS:
+https://blog.caelum.com.br/use-geolocation-api-do-html5-e-openstreetmaps-para-um-formulario-mais-amigavel/
+
+
 OUTRAS APIs DE MAPA:
 
 https://mundoapi.com.br/apis-publicadas/8-alternativas-poderosas-para-a-api-do-google-maps/
