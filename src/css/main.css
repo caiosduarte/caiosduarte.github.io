@@ -38,9 +38,10 @@
 
 /* estilização do mapa do Google Maps API */
 .mapa {
-  height: 100vh;
   width: 100vw;
+  height: 100vh;
   box-sizing: border-box;
+  position: relative;
 }
 
 /* estilização dos pontos marcados */
