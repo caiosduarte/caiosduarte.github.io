@@ -1,3 +1,6 @@
+APIs JAVASCRIPT PARA GEOLOCALIZAÇÃO (ótimo artigo):
+https://diveintohtml5.com.br/geolocation.html
+
 
 HTML5 API GEOLOCALIZAÇÃO + OPENSTREET MAPS:
 https://blog.caelum.com.br/use-geolocation-api-do-html5-e-openstreetmaps-para-um-formulario-mais-amigavel/
