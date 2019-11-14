@@ -17,7 +17,7 @@
             height: 100%;
             width: 0;
             position: fixed;
-            z-index: 1;
+            z-index: 2;
             top: 0;
             left: 0;
             /*background-color: #111;*/        
@@ -47,6 +47,24 @@
             right: 25px;
             font-size: 36px;
             margin-left: 50px;
+        }
+
+        .flybtn-left {
+            background: none rgb(255, 255, 255); 
+            border: 0px; 
+            margin: 10px; 
+            padding: 0px; 
+            position: absolute; 
+            cursor: pointer; 
+            user-select: none; 
+            border-radius: 2px; 
+            height: 40px; 
+            width: 40px; 
+            box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px -1px; 
+            overflow: hidden;                          
+            left: 5px;
+            top: 115px;
+            z-index: 1;
         }
 
         @media screen and (max-height: 450px) {
@@ -124,7 +142,7 @@
     <main>        
         <section id="mapeamento" class="secao secao--mapa">            
             <h2 class="secao__titulo secao__titulo--secundario" style="display:none;">Mapeamento</h2>            
-            <button style="background: none rgb(255, 255, 255); border: 0px; margin: 10px; padding: 0px; position: absolute; cursor: pointer; user-select: none; border-radius: 2px; height: 40px; width: 40px; box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px -1px; overflow: hidden; top: 115px; left: 5px;z-index: 3;" onclick="openNav()">&#9776;</button>
+            <button class="flybtn-left" onclick="openNav()">&#9776;</button>
             <div id="map" class="mapa"></div>
         </section>                
     </main>
