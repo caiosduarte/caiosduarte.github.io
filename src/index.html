@@ -36,11 +36,6 @@
             transition: 0.3s;
         }
 
-        /*
-        .sidenav a:hover {
-            color: #f1f1f1;
-        }*/
-
         .sidenav .closebtn {
             position: absolute;
             top: 0;
@@ -81,13 +76,14 @@
   <![endif]-->
 
     <header id="mySidenav" class="sidenav">
+        <h1 class="secao__titulo">Marcador de Pontos Georreferenciados</h1>
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        <h1 class="secao__titulo" style="display: none;">Marcador de Pontos Georreferenciados</h1>        
+         
         <section id="aqui" class="secao">
             <h2 class="secao__titulo secao__titulo--secundario">Geolocalização Atual</h2>
             <form id="form-ponto" class="ponto-form">
                 <dl>
-                    <dt class="ponto-form__label ponto-form__label--requerido"><label for="descricao"> Descrição</label></dt>
+                    <dt class="ponto-form__label ponto-form__label--requerido"><label for="descricao"> Descrição do Ponto</label></dt>
                     <dd>
                         <input id="descricao" name="descricao" class="ponto-form__campo" type="text" required>                        
                     </dd>
