@@ -12,61 +12,6 @@
 
     <meta name="theme-color" content="#fafafa">
 
-    <style>
-        .sidenav {
-            height: 100%;
-            width: 0;
-            position: fixed;
-            z-index: 2;
-            top: 0;
-            left: 0; 
-            background-color: white;        
-            overflow-x: hidden;
-            transition: 0.5s;
-            padding: 30px 0 0 0;
-            margin: 0;
-        }
-
-        .sidenav a {
-            padding: 8px 8px 8px 32px;
-            text-decoration: none;
-            font-size: 25px;
-            color: #818181;
-            display: block;
-            transition: 0.3s;
-        }
-
-        .sidenav .closebtn {
-            position: absolute;
-            top: 0;
-            right: 25px;
-            font-size: 36px;
-            margin-left: 50px;
-        }
-
-        .flybtn-left {
-            background: none rgb(255, 255, 255); 
-            border: 0px; 
-            margin: 5px; 
-            padding: 0px; 
-            position: absolute; 
-            cursor: pointer; 
-            user-select: none; 
-            border-radius: 2px; 
-            height: 40px; 
-            width: 40px; 
-            box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px -1px; 
-            overflow: hidden;                          
-            left: 5px;
-            z-index: 1;
-        }
-
-        @media screen and (max-height: 450px) {
-            .sidenav {padding-top: 15px;}
-            .sidenav a {font-size: 18px;}
-        }        
-    </style>
-
 </head>
 
 <body>
@@ -74,9 +19,9 @@
     <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
   <![endif]-->
 
-    <header id="mySidenav" class="sidenav">
+    <header id="mySidenav" class="lateral">
         <h1 class="secao__titulo">Marcador de Pontos Georreferenciados</h1>
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="javascript:void(0)" class="lateral__btnfechar" onclick="fechaLateral()">&times;</a>
          
         <section id="aqui" class="secao">
             <h2 class="secao__titulo secao__titulo--secundario">Geolocalização Atual</h2>
@@ -137,7 +82,7 @@
     <main>        
         <section id="mapeamento" class="secao secao--mapa">            
             <h2 class="secao__titulo secao__titulo--secundario" style="display:none;">Mapeamento</h2>            
-            <button class="flybtn-left" style="bottom: 20px;" onclick="openNav()">&#9776;</button>
+            <button class="mapa__btnflutuante" style="bottom: 20px;" onclick="abreLateral()">&#9776;</button>
 
             <div id="map" class="mapa"></div>
         </section>                
@@ -146,18 +91,6 @@
     <footer id="footer"></footer>
 
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD21roOt3t92rTBywi3evpWw-gxLLlqoMg&callback=initMap" async defer></script>
-
-
-    <script>
-        function openNav() {
-            document.getElementById("mySidenav").style.width = "315px";
-        }
-        
-        function closeNav() {
-            document.getElementById("mySidenav").style.width = "0";
-        }
-    </script>
-
 </body>
 
 </html>

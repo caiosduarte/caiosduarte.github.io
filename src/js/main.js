@@ -84,7 +84,7 @@ function trataErroLocalizacaoAproximada (PositionError) {
 
 function determinaLocalizacaoPrecisa(position) {
     if (!latitude) {
-        centralizaMapa(position.coords.latitude, position.coords.longitude);
+        mapa.centralizaMapa(position.coords.latitude, position.coords.longitude);
     }
     latitude = position.coords.latitude;
     longitude = position.coords.longitude;
@@ -132,5 +132,13 @@ window.centralizaComTecla = function () {
     centraliza(lat, lon);
   }    
 };
+
+window.abreLateral = function() {
+    document.getElementById("mySidenav").style.width = "315px";
+};
+
+window.fechaLateral = function() {
+    document.getElementById("mySidenav").style.width = "0";
+}
 
 

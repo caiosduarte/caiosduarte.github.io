@@ -38,6 +38,30 @@ $razao-aurea: 1.61803398875;
 
 }
 
+.lateral {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    left: 0; 
+    background-color: white;        
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding: 15px 0 0 0;
+    margin: 0;
+    &__btnfechar {
+        text-decoration: none;
+        color: #818181;
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 25px;
+        font-size: 36px;
+        margin-left: 50px;   
+    }
+}
+
 .navegacao {
     display: none;
     &__item {
@@ -68,10 +92,12 @@ $razao-aurea: 1.61803398875;
 @import '_formulario.scss';
 
 
-@media screen and (min-width: $desktop) {
+@media screen and (min-width: 451px) {
     /* $fonte-maior-em: 2em; */
     /* $fonte-maior-px: 22px; */
     .navegacao {
         display: none;
     }
+    .lateral {padding-top: 30px;}
+    .pontos__link {font-size: 25px;}
 }

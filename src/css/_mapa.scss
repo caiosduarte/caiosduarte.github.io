@@ -3,4 +3,20 @@
     height: 100vh;
     box-sizing: border-box;
     position: relative;
+    &__btnflutuante {
+        background: none rgb(255, 255, 255); 
+        border: 0px; 
+        margin: 5px; 
+        padding: 0px; 
+        position: absolute; 
+        cursor: pointer; 
+        user-select: none; 
+        border-radius: 2px; 
+        height: 40px; 
+        width: 40px; 
+        box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px -1px; 
+        overflow: hidden;                          
+        left: 5px;
+        z-index: 1;
+    }
 }
