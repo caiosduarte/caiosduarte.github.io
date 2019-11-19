@@ -98,6 +98,17 @@ $razao-aurea: 1.61803398875;
     .navegacao {
         display: none;
     }
-    .lateral {padding-top: 30px;}
-    .pontos__link {font-size: 25px;}
+    .lateral {
+        padding-top: 30px;
+    }
+    .pontos__link {
+        font-size: 25px;
+    }
 }
+
+@media (min-width: $desktop) {
+    .lateral {
+        width: 315px;
+    }    
+}
+

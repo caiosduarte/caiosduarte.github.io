@@ -164,5 +164,10 @@
     font-size: 25px;
   }
 }
+@media (min-width: 1024px) {
+  .lateral {
+    width: 315px;
+  }
+}
 
 /*# sourceMappingURL=main.css.map */
