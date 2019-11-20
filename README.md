@@ -24,6 +24,16 @@ Tentarei melhorar a parte OO do projeto depois, onde pretendo desacoplar a parte
 
 A manipulação de erros é outra coisa a ser melhorada.  
 
+Etapa 4
+
+Etapa 5
+
+Etapa 6
+
+Trabalho Final - Progressive Web Apps
+
+O nome projeto no git foi alterado para usar o domínio: https://caiosduarte.github.io/dist
+
 
 
 
