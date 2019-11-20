@@ -32,7 +32,30 @@ Etapa 6
 
 Trabalho Final - Progressive Web Apps
 
-O nome projeto no git foi alterado para usar o domínio: https://caiosduarte.github.io/dist
+Requisitos a serem implementados:
+
+1. Deve registrar um Service Worker (esse é obrigatório);
+2. Resposta com status 200 mesmo estando offline (esse é obrigatório)
+3. Deve exibir conteúdo quando o JavaScript estiver desabilitado;
+4. Toda a comunicação deve usar HTTPS (esse é obrigatório);
+    Para implementar HTTPS, o nome projeto no git foi alterado para usar o domínio: https://caiosduarte.github.io/dist
+5. Todo conteúdo HTTP deve ser redirecionado para HTTPS;
+6. Deve carregar rapidamente em conexões 3G;
+7. O usuário deve ser questionado se deseja instalar a aplicação;
+8. A aplicação deve ser configurada com uma splash screen personalizada;
+9. Deve colorir a barra de endereço do navegador com as cores do site;
+    Incluída a cor tema do site como whitesmoke (#f5f5f5): 
+    <meta name="theme-color" content="#f5f5f5">
+10. Implementa a metatag viewport;
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+11. Deve redimensionar o conteúdo da página corretamente (ser responsivo);
+12. Necessita ser cross-browser;
+13. As transições entre páginas não devem ser sensíveis à velocidade de conexão;
+14. Cada página deve ter uma URL (isso é, ser bookmarkable).
+
+
+
+
 
 
 
