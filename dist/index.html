@@ -19,27 +19,19 @@
     <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
   <![endif]-->
 
-    <header id="header" class="secao">
+    <header id="mySidenav" class="lateral">
         <h1 class="secao__titulo">Marcador de Pontos Georreferenciados</h1>
-    </header>
-
-    <main>
-        <section id="mapeamento" class="secao secao--mapa">            
-            <h2 class="secao__titulo secao__titulo--secundario" style="display:none;">Mapeamento</h2>
-            
-            <div id="map" class="mapa"></div>
-        </section>
-        <hr class="separador">
-        <section id="pontos" class="secao">
-            <h2 class="secao__titulo secao__titulo--secundario">Pontos</h2>
-            <ol id="lista-pontos" class="pontos">
-            </ol>
-        </section>
-        <hr class="separador">
+        <a href="javascript:void(0)" class="lateral__btnfechar" onclick="fechaLateral()">&times;</a>
+         
         <section id="aqui" class="secao">
             <h2 class="secao__titulo secao__titulo--secundario">Geolocalização Atual</h2>
             <form id="form-ponto" class="ponto-form">
                 <dl>
+                    <dt class="ponto-form__label ponto-form__label--requerido"><label for="descricao"> Descrição do Ponto</label></dt>
+                    <dd>
+                        <input id="descricao" name="descricao" class="ponto-form__campo" type="text" required>                        
+                    </dd>
+    
                     <dt class="ponto-form__label">Latitude</dt>
                     <dd>
                         <table class="ponto-form__coordenadas">
@@ -74,23 +66,31 @@
                             </tbody>
                         </table>
                     </dd>
-                    <dt class="ponto-form__label ponto-form__label--requerido"><label for="descricao"> Descrição</label></dt>
-                    <dd>
-                        <input id="descricao" name="descricao" class="ponto-form__campo" type="text" required>                        
-                    </dd>
                 </dl>
                 <br>
                 <button id="btn-marcar" class="ponto-form__botao" aria-label="Marca ponto no mapa">Marcar Ponto</button>
             </form>
-
+            <section id="pontos" class="secao">
+                    <h2 class="secao__titulo secao__titulo--secundario">Pontos</h2>
+                    <ol id="lista-pontos" class="pontos">
+                    </ol>
+            </section>
+        
         </section>
 
-        
-        <footer id="footer"></footer>
+    </header>        
+    <main>        
+        <section id="mapeamento" class="secao secao--mapa">            
+            <h2 class="secao__titulo secao__titulo--secundario" style="display:none;">Mapeamento</h2>            
+            <button class="mapa__btnflutuante" style="bottom: 20px;" onclick="abreLateral()">&#9776;</button>
+
+            <div id="map" class="mapa"></div>
+        </section>                
     </main>
 
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD21roOt3t92rTBywi3evpWw-gxLLlqoMg&callback=initMap" async defer></script>
+    <footer id="footer"></footer>
 
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD21roOt3t92rTBywi3evpWw-gxLLlqoMg&callback=initMap" async defer></script>
 <script type="text/javascript" src="bundle.js"></script></body>
 
 </html>
