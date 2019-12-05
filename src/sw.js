@@ -18,6 +18,8 @@ self.addEventListener('install', function(e) {
  );
 });
 
+/*
+
 // 2. ativação do service worker
 self.addEventListener('activate', function activator(event) {
     event.waitUntil(
@@ -38,3 +40,4 @@ self.addEventListener('activate', function activator(event) {
 self.addEventListener('fetch', function(event) {
     console.log(event.request.url);
    });
+*/   
