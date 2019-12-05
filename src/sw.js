@@ -5,7 +5,7 @@ var CACHE_NAME = 'pontosgeo-v0';
 // 1. instalação do service worker
 self.addEventListener('install', function(e) {
  e.waitUntil(
-   caches.open(CACHE-NAME).then(function(cache) {
+   caches.open(CACHE_NAME).then(function(cache) {
      return cache.addAll([
        '/',
        '/index.html',
