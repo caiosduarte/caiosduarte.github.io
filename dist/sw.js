@@ -1,4 +1,4 @@
-importScripts('/cache-polyfill.js');
+//importScripts('/cache-polyfill.js');
 // versionamento do cache
 var CACHE_NAME = 'pontosgeo-v0';
 
@@ -11,13 +11,12 @@ self.addEventListener('install', function(e) {
        '/index.html',
        '/bundle.js',
        '/style.css',
-       '/manifest.json',
-       '/img/icon.png'
+       '/manifest.json'
      ]);
    })
  );
 });
-
+/*
 // 2. ativação do service worker
 self.addEventListener('activate', function activator(event) {
     event.waitUntil(
@@ -38,3 +37,4 @@ self.addEventListener('activate', function activator(event) {
 self.addEventListener('fetch', function(event) {
     console.log(event.request.url);
    });
+*/
