@@ -15,8 +15,6 @@ window.initMap = function() {
     mapa = new MapaGoogleApi(map);
 };
 
-
-
 if ("geolocation" in navigator) {
     var latitude;      
     var longitude;
@@ -39,7 +37,7 @@ if ("geolocation" in navigator) {
             timeout: 27000
         }
         );    
-        centraliza(latitude, longitude);
+        
     } catch(e) {
         desabilitaForm();    
     }
@@ -49,7 +47,7 @@ if ("geolocation" in navigator) {
 }
 
 window.centraliza =  function (lat, lon) {
-    mapa.centralizaMapa(lat, lon);
+    if (mapa) mapa.centralizaMapa(lat, lon);
 };
 
 window.centralizaComTecla = function () {
@@ -68,7 +66,6 @@ window.fechaLateral = function() {
     document.getElementById("mySidenav").style.width = "0";
 }
 
-
 function desabilitaForm(habilita) {        
     let form = document.querySelector("#form-ponto");
 
@@ -76,8 +73,7 @@ function desabilitaForm(habilita) {
         form.descricao.classList.add("ponto-form__campo--alerta");
     } else {
         form.descricao.classList.remove("ponto-form__campo--alerta");
-    }
-    
+    }    
 }
 
 document.querySelector("#btn-marcar").addEventListener("click", function(event) {
@@ -90,7 +86,6 @@ function determinaLocalizacaoAproximada(position) {
     longitude = position.coords.longitude;
     document.querySelector("#lat-aproximada").value = latitude;
     document.querySelector("#lon-aproximada").value = longitude;
-    centraliza(latitude, longitude);
 }
 
 // TODO: Melhorar o tramento de erros
@@ -101,15 +96,13 @@ function trataErroLocalizacaoAproximada (PositionError) {
 }
 
 function determinaLocalizacaoPrecisa(position) {
-    if (!latitude) {
-        centraliza(position.coords.latitude, position.coords.longitude);
-    }
     latitude = position.coords.latitude;
     longitude = position.coords.longitude;
     navigator.geolocation.clearWatch(wpid);
 
     document.querySelector("#lat-precisa").value = latitude;    
     document.querySelector("#lon-precisa").value = longitude;
+    centraliza(position.coords.latitude, position.coords.longitude);
 }
 
 // TODO: Melhorar o tramento de erros de precisão
