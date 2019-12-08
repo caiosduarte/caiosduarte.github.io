@@ -3,7 +3,7 @@
   "name": "Marcador de Pontos Georreferenciados",
   "description": "O aplicativo para marcação de pontos georreferenciados guiado pela localização atual.",
   "display": "standalone",
-  "start_url": "/?utm_source=homescreen",
+  "start_url": "/",
   "background_color": "#fafafa",
   "theme_color": "#f5f5f5",
   "lang": "pt-BR",
@@ -12,5 +12,4 @@
     "type": "image/png",
     "sizes": "192x192"
   }]
- 
-}
+ }
