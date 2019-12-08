@@ -37,7 +37,7 @@ self.addEventListener('activate', function activator(event) {
 
 // 3. intercepta o que foi requisitado primeiro em cache  
 self.addEventListener('fetch', function(event) {
-  console.log(event.request.url);
+  //console.log(event.request.url);
 
   event.respondWith(
     caches.match(event.request).then(function(response) {

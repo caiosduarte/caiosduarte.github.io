@@ -16,6 +16,7 @@ window.initMap = function() {
 };
 
 
+
 if ("geolocation" in navigator) {
     var latitude;      
     var longitude;
@@ -38,6 +39,7 @@ if ("geolocation" in navigator) {
             timeout: 27000
         }
         );    
+        centraliza(latitude, longitude);
     } catch(e) {
         desabilitaForm();    
     }
@@ -46,14 +48,30 @@ if ("geolocation" in navigator) {
     throw new Error("API de geolocalização indisponível.");
 }
 
+window.centraliza =  function (lat, lon) {
+    mapa.centralizaMapa(lat, lon);
+};
+
+window.centralizaComTecla = function () {
+  // checa se o espaço ou enter foram pressionados
+  if (event.keyCode === 32 || event.keyCode === 13) {    
+    event.preventDefault();
+    centraliza(lat, lon);
+  }    
+};
+
+window.abreLateral = function() {
+    document.getElementById("mySidenav").style.width = "315px";
+};
+
+window.fechaLateral = function() {
+    document.getElementById("mySidenav").style.width = "0";
+}
+
+
 function desabilitaForm(habilita) {        
-    //document.querySelector("#descricao").setAttribute("disabled", "disabled");
-    //document.querySelector("#btn-marcar").setAttribute("disabled", "disabled");    
     let form = document.querySelector("#form-ponto");
-    //form.lat_aproximada.classList.add("ponto-form__campo--alerta");
-    //form.lat_precisa.classList.add("ponto-form__campo--alerta");
-    //form.lon_aproximada.classList.add("ponto-form__campo--alerta");
-    //form.lon_precisa.classList.add("ponto-form__campo--alerta");
+
     if(habilita) {
         form.descricao.classList.add("ponto-form__campo--alerta");
     } else {
@@ -72,7 +90,7 @@ function determinaLocalizacaoAproximada(position) {
     longitude = position.coords.longitude;
     document.querySelector("#lat-aproximada").value = latitude;
     document.querySelector("#lon-aproximada").value = longitude;
-    mapa.centralizaMapa(latitude, longitude);
+    centraliza(latitude, longitude);
 }
 
 // TODO: Melhorar o tramento de erros
@@ -84,7 +102,7 @@ function trataErroLocalizacaoAproximada (PositionError) {
 
 function determinaLocalizacaoPrecisa(position) {
     if (!latitude) {
-        mapa.centralizaMapa(position.coords.latitude, position.coords.longitude);
+        centraliza(position.coords.latitude, position.coords.longitude);
     }
     latitude = position.coords.latitude;
     longitude = position.coords.longitude;
@@ -121,24 +139,5 @@ function adicionaPonto() {
     }
 }
 
-window.centraliza = function (lat, lon) {
-    mapa.centralizaMapa(lat, lon);
-};
-
-window.centralizaComTecla = function () {
-  // checa se o espaço ou enter foram pressionados
-  if (event.keyCode === 32 || event.keyCode === 13) {    
-    event.preventDefault();
-    centraliza(lat, lon);
-  }    
-};
-
-window.abreLateral = function() {
-    document.getElementById("mySidenav").style.width = "315px";
-};
-
-window.fechaLateral = function() {
-    document.getElementById("mySidenav").style.width = "0";
-}
 
 
