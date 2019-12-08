@@ -1,5 +1,4 @@
-
-importScripts('/cache-polyfill.js');
+importScripts('/cache-polyfill.js')
 // versionamento do cache
 var CACHE_NAME = 'pontosgeo-v0';
 
@@ -14,8 +13,7 @@ self.addEventListener('install', function(e) {
        '/bundle.js',
        '/style.css',
        '/manifest.json',
-       '/img/icon.png',
-       '/img/favicon.png'
+       '/img/icon.png'
      ]);
    })
  );
