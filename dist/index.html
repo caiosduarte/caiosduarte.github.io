@@ -99,8 +99,8 @@
             .then(function () {
                 console.log('service worker registrado');
             })
-            .catch(function () {
-                console.warn('service worker não registrado');
+            .catch(function (err) {
+                console.warn('service worker não registrado. erro: ' + err);
             });
         }
     </script>    
