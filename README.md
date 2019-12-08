@@ -32,11 +32,24 @@ Tentarei melhorar a parte OO do projeto depois, onde pretendo desacoplar a parte
 
 A manipulação de erros é outra coisa a ser melhorada.  
 
-## Etapa 4
+## Etapa 4 - Exercício prático 04 - Guia de npm para principiantes
+Tutorial do npm.
 
-## Etapa 5
+## Etapa 5 - Exercício prático 05 - Criando um bundle otimizado para produção com webpack
+Tutorial do webpack.
 
-## Etapa 6
+## Etapa 6 - Exercício prático 06 - NPM e Webpack no seu projeto
+**O que foi feito:** Integração do projeto com o webpack.
+
+**O que ainda será feito:** Integrar o loader o sass ao webpack.
+
+## Etapa 7 - Exercício prático 07 - Usando princípios do WCAG e WAI-ARIA
+**O que foi feito:** Usei os princípios 1 - perceptível: nos links dos pontos alterando o layout do CSS para um contraste maior
+2- operável: colocando os links ponto para acessibilidade com mouse e teclas espaço e enter
+3 - usei o aria-label para descrever o que acontece ao clicar nos pontos: eles são centralizados
+
+**O que ainda será feito:**
+4 - tentei deixar o form mais perceptível colocando um ícone de alerta dentro dele, mas não deu tempo
 
 ## Trabalho Final - Progressive Web Apps (PWA)
 
@@ -96,7 +109,7 @@ Antes do início da construção do PWA, foram feitos alguns ajustes no código 
 
 ### Mudanças na Interface
 
-- A interface foi ajustada para ficar mais responsiva. Para isso, a largura e altura foram ajustadas para ficar com 100% (vh, vv), este contendo o mapa do google maps. Segue a nova interface 
+- A interface foi ajustada para ficar mais responsiva. Para isso, a largura e altura foram ajustadas para ficar com 100% (vh, vw), este contendo o mapa do google maps. Segue a nova interface 
 
 ![Interface responsiva com menu hamburger](doc/interface-responsiva.png)
 
