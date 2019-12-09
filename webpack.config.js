@@ -68,8 +68,8 @@ module.exports = {
             filename: 'index.html',
             template: path.join(__dirname, 'src/index.html')
         }),
-        new ExtractTextPlugin('style.css'),
-        new UglifyJSPlugin()
+        new ExtractTextPlugin('style.css')
+        //, new UglifyJSPlugin()
     ],
     devServer: {
         publicPath: "/",

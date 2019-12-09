@@ -1,35 +1,55 @@
+const loadGoogleMapsApi = require('load-google-maps-api');
+
 class MapaGoogleApi {
-    constructor(map, ...pontos) {
+    
+    static loadGoogleMapsApi() {
+        return loadGoogleMapsApi({ key: 'AIzaSyD21roOt3t92rTBywi3evpWw-gxLLlqoMg' });
+    }
+
+    
+
+    static createMap(googleMaps, mapElement, coords = {lat: -19.85, lng: -43.8}, ...pontos) {
+        this.map = new googleMaps.Map(mapElement, {
+            center: coords,
+            zoom: 17
+        });
+        this.marcadores = new Set();
+        pontos.forEach(p => this.marcadores.add(this.getMarcador(p)));   
+        return this.map;
+    }
+    
+
+     constructor(map, ...pontos) {
         this.map = map;
         this.marcadores = new Set();
         pontos.forEach(p => this.marcadores.add(this.getMarcador(p)));       
     }
 
-    getMarcador(ponto) {
+    static getMarcador(ponto) {
         return {
             position: this.getPosicao(ponto),
             title: ponto.getDescricao()
         };
     };
 
-    getPosicao(ponto) {
+    static getPosicao(ponto) {
         return {
             lat: ponto.getLatitude(),
             lng: ponto.getLongitude()
         };
     };
 
-    marcaPonto(ponto) {
+    static marcaPonto(ponto) {
         let marcador = new google.maps.Marker(this.getMarcador(ponto));
         marcador.setMap(this.map);
         this.centralizaMapaNoPonto(ponto);                
     };
 
-    centralizaMapaNoPonto(ponto) {        
+    static centralizaMapaNoPonto(ponto) {        
         this.map.setCenter(this.getPosicao(ponto));
     };
     
-    centralizaMapa(lat, long) {
+    static centralizaMapa(lat, long) {
         let pos = {
             lat: lat, lng: long
         };        

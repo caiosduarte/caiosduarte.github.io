@@ -12,15 +12,26 @@ window.initMap = function() {
         },
         zoom: 17
     });
-    mapa = new MapaGoogleApi(map);
+    //mapa = new MapaGoogleApi(map);
 };
+
+document.addEventListener("DOMContentLoaded", function() {
+    let mapElement = document.getElementById('map');
+    
+    MapaGoogleApi.loadGoogleMapsApi().then(function(googleMaps) {
+        let coords;
+        if (latitude) coords = {lat: latitude, lng:longitude}
+        MapaGoogleApi.createMap(googleMaps, mapElement, coords);
+    });
+  });
+  
 
 if ("geolocation" in navigator) {
     var latitude;      
     var longitude;
     // TODO: substituir por um Map do javascript
     var erros = [];    
-    var mapa;
+    //var mapa;
 
     try {
         navigator.geolocation.getCurrentPosition(
@@ -47,7 +58,7 @@ if ("geolocation" in navigator) {
 }
 
 window.centraliza =  function (lat, lon) {
-    if (mapa) mapa.centralizaMapa(lat, lon);
+    MapaGoogleApi.centralizaMapa(lat, lon);
 };
 
 window.centralizaComTecla = function () {
@@ -102,7 +113,6 @@ function determinaLocalizacaoPrecisa(position) {
 
     document.querySelector("#lat-precisa").value = latitude;    
     document.querySelector("#lon-precisa").value = longitude;
-    centraliza(position.coords.latitude, position.coords.longitude);
 }
 
 // TODO: Melhorar o tramento de erros de precisão
@@ -117,7 +127,7 @@ function adicionaPonto() {
 
     try {
         var ponto = new Ponto(latitude, longitude, campoDescricao.value);
-        mapa.marcaPonto(ponto);
+        MapaGoogleApi.marcaPonto(ponto);
 
         // criado role button nos links PONTO para acessibilidade com mouse e teclas espaço e enter, atendendo o princípio WCAG, 2 - OPERÁVEL
         let param = `(${ponto.latitude}, ${ponto.longitude})`;
