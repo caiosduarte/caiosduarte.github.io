@@ -4,22 +4,14 @@ import { MapaGoogleApi } from './mapa';
 const LAT_INICIAL = -19.85;
 const LNG_INICIAL = -43.8;
 
-window.initMap = function() {     
-    let map = new google.maps.Map(document.getElementById('map'), {
-        center: {
-            lat: LAT_INICIAL,
-            lng: LNG_INICIAL
-        },
-        zoom: 17
-    });
-    //mapa = new MapaGoogleApi(map);
-};
-
 document.addEventListener("DOMContentLoaded", function() {
     let mapElement = document.getElementById('map');
     
     MapaGoogleApi.loadGoogleMapsApi().then(function(googleMaps) {
-        let coords;
+        let coords = {
+            lat: LAT_INICIAL,
+            lng: LNG_INICIAL
+        };
         if (latitude) coords = {lat: latitude, lng:longitude}
         MapaGoogleApi.createMap(googleMaps, mapElement, coords);
     });
@@ -31,7 +23,6 @@ if ("geolocation" in navigator) {
     var longitude;
     // TODO: substituir por um Map do javascript
     var erros = [];    
-    //var mapa;
 
     try {
         navigator.geolocation.getCurrentPosition(
