@@ -9,11 +9,12 @@ self.addEventListener('install', function(e) {
    caches.open(CACHE_NAME).then(function(cache) {
      return cache.addAll([
        '/',
-       '/index.html',
-       '/bundle.js',
+       '/cache-polyfill.js',
        '/style.css',
+       '/bundle.js',
        '/manifest.json',
-       '/img/icon.png'
+       '/img/icon.png',
+       '/index.html'
      ]);
    })
  );
