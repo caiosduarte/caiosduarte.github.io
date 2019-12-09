@@ -1,3 +1,6 @@
+MODULE npm PARA GOOGLE MAPS API:
+https://medium.com/@paw145/using-the-google-maps-api-with-webpack-npm-and-a-handy-promise-returning-helper-19c9312971b0
+
 APIs JAVASCRIPT PARA GEOLOCALIZAÇÃO (ótimo artigo):
 https://diveintohtml5.com.br/geolocation.html
 
